@@ -3,5 +3,10 @@
   "description": "A Selfbot for Discord. Easily setup with Heroku",
   "repository": "https://github.com/DwifteJB/dwifte.py",
   "logo": "https://cdn.discordapp.com/attachments/748915088270032986/749351058383306752/image0.gif",
-  "keywords": ["python", "selfbot", "discord.py"]
+  "keywords": ["python", "selfbot", "discord.py"],
+  "env": {
+    "TOKEN": {
+        "description": "Your Discord Token",
+        "required": true
+  }
 }
