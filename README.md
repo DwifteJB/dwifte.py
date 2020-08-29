@@ -16,6 +16,8 @@
 ## Commands ##
 Use "" around arguments to use multiple words.
 
+Comes with a giveaway sniper ;)
+
 Command       | Info | Permissions
 ------------- | ------------- | -------------
 -help  | Shows this table, in console: -help | NONE
