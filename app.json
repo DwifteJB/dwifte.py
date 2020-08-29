@@ -9,5 +9,9 @@
         "description": "Your Discord Token",
         "required": true
     }
+    "PREFIX": {
+        "description": "Prefix for commands",
+        "required": true
+    }
   }
 }

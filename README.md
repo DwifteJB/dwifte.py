@@ -1,11 +1,11 @@
 # dwifte.py
-
+Special thanks to <a src="https://github.com/CrafterPika">CrafterPika</a> for all the help <3
 <img alt="GitHub All Releases" align="left" src="https://img.shields.io/github/downloads/dwiftejb/dwifte.py/total"> <img alt="GitHub release (latest by date)" align="left" src="https://img.shields.io/github/v/release/dwiftejb/dwifte.py">
 <br>
 <br>
 <br>
 
-# How to Run #
+# Run VIA Heroku #
 
 <a href="https://heroku.com/deploy?template=https://github.com/dwiftejb/dwifte.py">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">

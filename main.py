@@ -1,9 +1,4 @@
 import os
-# CONFIG
-# ---------
-prefix = "-"
-# ----------
-
 import urllib.request
 import sys
 import asyncio
@@ -14,20 +9,18 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 version = "release1.0"
 try:
+    prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
     heroku = True
 except KeyError:
     heroku = False
+
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command("help")
 
 @bot.event
-async def on_ready():
-    print ("It's time.")
-
-@bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}#{bot.user.discriminator}')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}')
 
 try:
     async def self_check(ctx):
@@ -53,6 +46,7 @@ try:
         embed.set_thumbnail(url=arg4)
         embed.set_footer(text=arg3)
         await ctx.send(embed=embed)
+        print ("Action Completed: say")
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -77,6 +71,7 @@ try:
     async def xpbot(ctx):
         await ctx.message.delete()
         print ("-stop to stop")
+        print ("Action Started: xpbot")
         for i in range(9999):
             await ctx.message.delete()
             await ctx.send(".")
@@ -108,6 +103,7 @@ try:
         await message.add_reaction("🥶")
         await message.add_reaction("🥺")
         await message.add_reaction("👆")
+        print ("Action Completed: react")
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -116,6 +112,7 @@ try:
             try:
                 target = await bot.fetch_user(user_id)
                 await ctx.message.delete()
+                print ("Action Completed: dmspam")
                 for i in range(9999):
                     await target.send(args)
                     await asyncio.sleep(0.7)
@@ -124,8 +121,6 @@ try:
 
         else:
             await ctx.channel.send("You didn't provide a user's id and/or a message.")
-
-    
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -137,6 +132,7 @@ try:
     @bot.command(pass_context=True)
     async def spam(ctx, arg1):
         await ctx.message.delete()
+        print ("Action Completed: spam")
         for i in range(9999):
             await ctx.send(arg1)
             await asyncio.sleep(0.7)
@@ -159,7 +155,6 @@ try:
             except:
                 print (f"{user.name} has FAILED to be kicked from {ctx.guild.name}")
         print ("Action Completed: kall")
-    # Kicks every member in a server.
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -170,6 +165,7 @@ try:
                await message.delete()
             except:
                 pass
+        print ("Action Completed: purge")
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -189,39 +185,40 @@ try:
         if mention is None:
             print ("User Didn't provide a mention")
         await ctx.message.delete()
+        print ("Action Completed: gp")
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
     async def ping(ctx):
         await ctx.message.delete()
         await ctx.send(f' 🏓 Pong! It took {round(bot.latency * 1000)}ms to contact Discord')
+        print ("Action Completed: ping")
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
     async def help(ctx):
-        await ctx.send("lol check console")
-        print ("Help command is now here due to bannings from embeds.")
+        await ctx.send("CONSOLE")
         print ("")
-        print ("-stop: Stops Bot")
-        print ("-ping: Shows PING")
-        print ("-download_png: Downloads Image")
-        print ("-xpbot: XP Bots")
-        print ("-ping: Shows PING")
-        print ("-attachspam: Spams Attachment")
-        print ("-spam: Spams selected message")
-        print ("-dmspam: Spams selected ID")
-        print ("-rall: Renamed everyone")
-        print ("-kall: Kicks Everyone")
-        print ("-ball: Bans Everyone")
-        print ("-dall: Deletes Every channel")
-        print ("-gp: Ghost Pings mention")
-        print ("-say: Shows an embed")
-        print ("-asay: Type in ascaii")
-        print ("-purge: Purges chat/select amount")
-        print ("-streaming: Show a streaming status")
-        print ("-playing: Show a playing status")
-        print ("-listening: Shows a listening status")
-        print ("-watching: Shows a watching status")
+        print (f"{prefix}stop: Stops Bot")
+        print (f"{prefix}ping: Shows PING")
+        print (f"{prefix}download_png: Downloads Image")
+        print (f"{prefix}xpbot: XP Bots")
+        print (f"{prefix}ping: Shows PING")
+        print (f"{prefix}attachspam: Spams Attachment")
+        print (f"{prefix}spam: Spams selected message")
+        print (f"{prefix}dmspam: Spams selected ID")
+        print (f"{prefix}rall: Renamed everyone")
+        print (f"{prefix}kall: Kicks Everyone")
+        print (f"{prefix}ball: Bans Everyone")
+        print (f"{prefix}dall: Deletes Every channel")
+        print (f"{prefix}gp: Ghost Pings mention")
+        print (f"{prefix}say: Shows an embed")
+        print (f"{prefix}asay: Type in ascaii")
+        print (f"{prefix}purge: Purges chat/select amount")
+        print (f"{prefix}streaming: Show a streaming status")
+        print (f"{prefix}playing: Show a playing status")
+        print (f"{prefix}listening: Shows a listening status")
+        print (f"{prefix}watching: Shows a watching status")
         print ("")
 
     @commands.check(self_check)
@@ -304,6 +301,7 @@ try:
         ascii_banner = pyfiglet.figlet_format(arg1)
         await ctx.message.delete()
         await ctx.send(f'```{ascii_banner}```')
+        print ("Action Completed: asay")
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -343,6 +341,7 @@ try:
         print('Downloading Requested file')
         url = arg1
         urllib.request.urlretrieve(url, './data/cached.png')
+        print ("Action Completed: attachspam")
         for i in range(50):
             await ctx.send(file=File('./data/cached.png'))
             await asyncio.sleep(0.0)
@@ -358,4 +357,3 @@ except:
     pass
 token = os.environ['TOKEN']
 bot.run(token, bot=False)
-# Starts the bot by passing it a token and telling it it isn't really a bot.
