@@ -12,7 +12,6 @@ import discord
 from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
-from discord_webhook import DiscordWebhook, DiscordEmbed
 
 try:
     token = os.environ['TOKEN']
@@ -33,19 +32,7 @@ async def on_ready():
 
 @bot.event
 async def on_connect():
-  webhook = DiscordWebhook(url='https://discord.com/api/webhooks/748244489822273707/wNvSWyi1UomwwvwmJgT-tyNjBzuP0NgNuxsqE8CDFs2FgEIo2fbFLLwCKgpr5PUL--9J')
-  # create embed object for webhook
-  embed = DiscordEmbed(title='DwifteJB Online', description='Back online', color=242424)
-  # add embed object to webhook
-  webhook.add_embed(embed)
-  response = webhook.execute()
-  # changelog
-  webhook = DiscordWebhook(url='https://discord.com/api/webhooks/748244489822273707/wNvSWyi1UomwwvwmJgT-tyNjBzuP0NgNuxsqE8CDFs2FgEIo2fbFLLwCKgpr5PUL--9J')
-  # create embed object for webhook
-  embed = DiscordEmbed(title='Changelog', description='something was added', color=242424)
-  # add embed object to webhook
-  webhook.add_embed(embed)
-  response = webhook.execute()
+  print ("Have fun.")
 
 try:
     async def self_check(ctx):
@@ -417,14 +404,6 @@ try:
 
     @bot.event
     async def on_message(message):
-        if 'Congratulations <@!521762564062052393>' in message.content:
-            print ("WON GIVEAWAY BUT WEBHOOK IS SHit")
-            webhook = DiscordWebhook(url='https://discord.com/api/webhooks/748244489822273707/wNvSWyi1UomwwvwmJgT-tyNjBzuP0NgNuxsqE8CDFs2FgEIo2fbFLLwCKgpr5PUL--9J', content=f'***GIVEAWAY WON***\n\nIn Server: {message.guild}/nIn Channel: {message.channel}')
-            response = webhook.execute()
-        await bot.process_commands(message)
-
-    @bot.event
-    async def on_message(message):
         if '<:yay:585696613507399692>   **GIVEAWAY**   <:yay:585696613507399692>' in message.content:
             await asyncio.sleep(7)
             await message.add_reaction("🎉")
@@ -432,14 +411,7 @@ try:
 
 except:
     pass
-print("")
-print("")
-print("BOT LOADED :)")
-print("")
-print("")
-print("Commands:")
-print("rall : Renames all")
-print("ball : Bans all")
+print (f'Dwifte.PY 1.0.0\nLogged in as: {bot.user.name}#{bot.user.discriminator} ')
 token = os.environ['TOKEN']
 bot.run(token, bot=False)
 # Starts the bot by passing it a token and telling it it isn't really a bot.

@@ -19,4 +19,11 @@ I've made it super easy to use with heroku, click the button below to deploy to 
 
 <br>
 <br>
+# Commands #
+
+Command       | Command Info
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
 Do not skid this selfbot. You can edit the code but do not redistribute it saying it is 'yours'. That is scummy.
