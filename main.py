@@ -381,10 +381,14 @@ try:
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
-    async def attachspam(ctx):
+    async def attachspam(ctx, arg1):
         await ctx.message.delete()
-        for i in range(9999):
-            await ctx.send(file=File("./data/png.png"))
+        await ctx.send("Downloading the requested img")
+        print('Downloading Requested file')
+        url = arg1
+        urllib.request.urlretrieve(url, './data/cached.png')
+        for i in range(50):
+            await ctx.send(file=File('./data/cached.png'))
             await asyncio.sleep(0.0)
 
     @bot.event
