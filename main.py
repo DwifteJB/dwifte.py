@@ -27,7 +27,7 @@ async def on_ready():
 
 @bot.event
 async def on_connect():
-  print ("")
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}#{bot.user.discriminator}')
 
 try:
     async def self_check(ctx):
@@ -356,7 +356,6 @@ try:
 
 except:
     pass
-print (f'Dwifte.PY {version}\nLogged in as: {bot.user}#{bot.user.discriminator}')
 token = os.environ['TOKEN']
 bot.run(token, bot=False)
 # Starts the bot by passing it a token and telling it it isn't really a bot.
