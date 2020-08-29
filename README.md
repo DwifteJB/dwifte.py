@@ -42,5 +42,10 @@ Command       | Info | Permissions
 -ping  | Shows Ping in MS: -ping | NONE
 -gp  | Ghost Pings: -gp {mention} | NONE
 -attachspam  | Spams attachment using link: -gp {link} | SEND_ATTACHMENTS
-
+<br>
+### Other Info ###
+As of version 1.0.0, heroku is the only way to deploy the bot. 
+<br>
+Created by DwifteJB 
+<br>
 Do not skid this selfbot. You can edit the code but do not redistribute it saying it is 'yours'. That is scummy.

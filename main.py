@@ -12,27 +12,22 @@ import discord
 from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
-
+version = "release1.0"
 try:
     token = os.environ['TOKEN']
     heroku = True
 except KeyError:
     heroku = False
-
-# Imports the needed libs.
-print ("Loading..")
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command("help")
-# Declares the bot, passes it a prefix and lets it know to (hopefully) only listen to itself.
 
 @bot.event
 async def on_ready():
     print ("It's time.")
-# Prints when the bot is ready to be used.
 
 @bot.event
 async def on_connect():
-  print ("Have fun.")
+  print ("")
 
 try:
     async def self_check(ctx):
@@ -40,7 +35,6 @@ try:
             return True
         else:
             return False
-    # A secondary check to ensure nobody but the owner can run these commands. Commented out for performance
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -188,7 +182,6 @@ try:
             except:
                 print (f"{user.name} has FAILED to be banned from {ctx.guild.name}")
         print ("Action Completed: ball")  
-    # Bans every member in a server.
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -231,40 +224,6 @@ try:
         print ("-watching: Shows a watching status")
         print ("")
 
-#    @commands.check(self_check)
-#    @bot.command(pass_context=True)
-#    async def ehelp(ctx, arg1 = None):
-#        if arg1 is help:
-#            embed=discord.Embed(title="DwifteJB SelfBot ;)", description="Here you can seek help with commands ;)")
-#            embed.add_field(name="Command Info", value="Shows you all the commands", inline=True)
-#            embed.add_field(name="Permissions Needed", value="NONE", inline=True)
-#            embed.set_footer(text="Only you can execute ;)")
-#            await ctx.send(embed=embed)
-#        if arg1 is None:
-#            embed=discord.Embed(title="DwifteJB SelfBot ;)", description="Here you can seek help with commands ;)")
-#            embed.add_field(name="-help", value="Shows this UI", inline=True)
-#            embed.add_field(name="-ping", value="Shows your PING", inline=True)
-#            embed.add_field(name="-rall {'name here'}", value="Renames everyone ", inline=True)
-#            embed.add_field(name="-ball", value="Bans Everyone", inline=True)
-#            embed.add_field(name="-kall", value="Kicks Everyone", inline=True)
-#            embed.add_field(name="-dall", value="Deletes all channels", inline=True)
-#            embed.add_field(name="-destroy", value="Destroys a server", inline=True)
-#            embed.add_field(name="-say", value="Embeds Message", inline=True)
-#            embed.add_field(name="-restart", value="Restarts Bot", inline=True)
-#            embed.add_field(name="-gp", value="Instant GhostPing", inline=True)
-#            embed.add_field(name="-asay", value="Ascaii ;)", inline=True)
-#            embed.add_field(name="-purge", value="Purge's your messages", inline=True)
-#            embed.add_field(name="-spam", value="spam spam", inline=True)
-#            embed.add_field(name="-attachspam", value="Spams attachments", inline=True)
-#            embed.add_field(name="-dmspam", value="spams IDs dms", inline=True)
-#            embed.add_field(name="-streaming", value="Sets your streaming Status", inline=True)
-#            embed.add_field(name="-playing", value="Sets your playing Status", inline=True)
-#            embed.add_field(name="-watching", value="Sets your watching Status", inline=True)
-#            embed.add_field(name="-listening", value="Sets your listening Status", inline=True)
-#            embed.set_footer(text="Only you can execute ;)")
-#            await ctx.send(embed=embed)
-#        await ctx.message.delete()
-
     @commands.check(self_check)
     @bot.command(pass_context=True)
     async def rall(ctx, rename_to):
@@ -276,7 +235,6 @@ try:
             except:
                 print (f"{user.name} has NOT been renamed to {rename_to} in {ctx.guild.name}")
         print ("Action Completed: rall")
-    # Renames every member in a server.
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -289,7 +247,6 @@ try:
             except:
                 print(f"{user.name} has NOT recieved the message.")
         print("Action Completed: mall")
-    # Messages every member in a server.
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -338,7 +295,6 @@ try:
                 except:
                     print (f"{emoji.name} has NOT been deleted in {ctx.guild.name}")
             print ("Action Completed: dall all")
-    # Can perform multiple actions that envolve mass deleting.
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -348,6 +304,7 @@ try:
         ascii_banner = pyfiglet.figlet_format(arg1)
         await ctx.message.delete()
         await ctx.send(f'```{ascii_banner}```')
+
     @commands.check(self_check)
     @bot.command(pass_context=True)
     async def destroy(ctx):
@@ -377,7 +334,6 @@ try:
             except:
                 print (f"{user.name} has FAILED to be banned from {ctx.guild.name}")
         print ("Action Completed: destroy")
-    # Outright destroys a server.
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -400,7 +356,7 @@ try:
 
 except:
     pass
-print (f'Dwifte.PY 1.0.0\nLogged in as: {bot.user.name}#{bot.user.discriminator}')
+print (f'Dwifte.PY {version}\nLogged in as: {bot.bot.user}#{bot.user.discriminator}')
 token = os.environ['TOKEN']
 bot.run(token, bot=False)
 # Starts the bot by passing it a token and telling it it isn't really a bot.
