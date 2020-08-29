@@ -82,7 +82,7 @@ try:
     @bot.command(pass_context=True)
     async def xpbot(ctx):
         await ctx.message.delete()
-        print ("-restart to stop")
+        print ("-stop to stop")
         for i in range(9999):
             await ctx.message.delete()
             await ctx.send(".")
@@ -149,12 +149,8 @@ try:
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
-    async def restart(ctx):
+    async def stop(ctx):
         await ctx.message.delete()
-        webhook = DiscordWebhook(url='https://discord.com/api/webhooks/748244489822273707/wNvSWyi1UomwwvwmJgT-tyNjBzuP0NgNuxsqE8CDFs2FgEIo2fbFLLwCKgpr5PUL--9J')
-        embed = DiscordEmbed(title='DwifteJB is manually Restarting', description='Restart in progress', color=242424)
-        webhook.add_embed(embed)
-        response = webhook.execute()
         sys.exit()
 
 
@@ -170,18 +166,6 @@ try:
                 print (f"{user.name} has FAILED to be kicked from {ctx.guild.name}")
         print ("Action Completed: kall")
     # Kicks every member in a server.
-
-    @commands.check(self_check)
-    @bot.command(pass_context=True)
-    async def download_png(ctx, arg1):
-        await ctx.message.delete()
-        #download png
-        os.remove("./data/png.png")
-        print('Downloading Requested file')
-        url = arg1
-        urllib.request.urlretrieve(url, './data/png.png')
-        #attach it
-        await ctx.send(file=File('./data/png.png'))
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -225,6 +209,7 @@ try:
         await ctx.send("lol check console")
         print ("Help command is now here due to bannings from embeds.")
         print ("")
+        print ("-stop: Stops Bot")
         print ("-ping: Shows PING")
         print ("-download_png: Downloads Image")
         print ("-xpbot: XP Bots")
