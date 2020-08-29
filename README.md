@@ -1,5 +1,5 @@
 # dwifte.py
-Special thanks to <a src="https://github.com/CrafterPika">CrafterPika</a> for all the help <3
+Special thanks to <a src="https://github.com/CrafterPika">CrafterPika</a> for all the help <3<br>
 <img alt="GitHub All Releases" align="left" src="https://img.shields.io/github/downloads/dwiftejb/dwifte.py/total"> <img alt="GitHub release (latest by date)" align="left" src="https://img.shields.io/github/v/release/dwiftejb/dwifte.py">
 <br>
 <br>
@@ -43,7 +43,9 @@ Command       | Info | Permissions
 -gp  | Ghost Pings: -gp {mention} | NONE
 -attachspam  | Spams attachment using link: -gp {link} | SEND_ATTACHMENTS
 <br>
+
 ### Other Info ###
+
 As of version 1.0.0, heroku is the only way to deploy the bot. 
 <br>
 Created by DwifteJB 
