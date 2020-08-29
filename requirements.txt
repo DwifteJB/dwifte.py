@@ -1,0 +1,7 @@
+git+https://github.com/Rapptz/discord.py
+discord_webhook
+pyrpc
+websockets
+aiohttp
+pyfiglet
+asyncio
