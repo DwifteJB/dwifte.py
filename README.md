@@ -12,8 +12,6 @@
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 <br>
-<h3>Currently only works with Heroku</h3>
-<br>
 <br>
 
 ## Commands ##
