@@ -12,7 +12,7 @@ Thanks to Heroku's Cloud Service, we can host this selfbot 24/7.
 
 I've made it super easy to use with heroku, click the button below to deploy to heroku.
 
-<a href="https://heroku.com/deploy?template=https://github.com/heroku/node-js-getting-started">
+<a href="https://heroku.com/deploy?template=https://github.com/dwiftejb/dwifte.py">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
