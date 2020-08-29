@@ -13,6 +13,10 @@ Special thanks to <a src="https://github.com/CrafterPika">CrafterPika</a> for al
 <br>
 <br>
 
+# RUN VIA NETWORK #
+
+Not implimented ;)
+
 ## Commands ##
 Use "" around arguments to use multiple words.
 
@@ -48,6 +52,8 @@ Command       | Info | Permissions
 
 As of version 1.0.0, heroku is the only way to deploy the bot. 
 <br>
-Created by DwifteJB 
+<br>
+Created by DwifteJB and CrafterPika
+<br>
 <br>
 Do not skid this selfbot. You can edit the code but do not redistribute it saying it is 'yours'. That is scummy.
