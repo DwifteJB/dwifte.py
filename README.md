@@ -1,6 +1,6 @@
 # dwifte.py
 Special thanks to <a src="https://github.com/CrafterPika">CrafterPika</a> for all the help <3<br>
-<img alt="GitHub All Releases" align="left" src="https://img.shields.io/github/downloads/dwiftejb/dwifte.py/total"> <img alt="GitHub release (latest by date)" align="left" src="https://img.shields.io/github/v/release/dwiftejb/dwifte.py">
+<img alt="GitHub All Releases" align="left" src="https://img.shields.io/github/downloads/dwiftejb/dwifte.py/total"> <img alt="GitHub release (latest by date)" align="left" src="https://img.shields.io/github/v/release/dwiftejb/dwifte.py"> <img alt="Discord" align="left" src="https://img.shields.io/discord/748239859562315886?color=7289da&label=Discord">
 <br>
 <br>
 <br>
