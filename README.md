@@ -14,7 +14,7 @@
 
 # RUN VIA NETWORK #
 
-Not implimented ;)
+Not implimented :)
 
 ## Commands ##
 
