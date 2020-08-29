@@ -16,5 +16,6 @@ I've made it super easy to use with heroku, click the button below to deploy to 
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
-
+<br>
+<br>
 Do not skid this selfbot. You can edit the code but do not redistribute it saying it is 'yours'. That is scummy.
