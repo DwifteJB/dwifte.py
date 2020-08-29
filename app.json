@@ -8,5 +8,6 @@
     "TOKEN": {
         "description": "Your Discord Token",
         "required": true
+    }
   }
 }
