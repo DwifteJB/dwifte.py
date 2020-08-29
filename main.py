@@ -400,7 +400,7 @@ try:
 
 except:
     pass
-print (f'Dwifte.PY 1.0.0\nLogged in as: {bot.user.name}#{bot.user.discriminator} ')
+print (f'Dwifte.PY 1.0.0\nLogged in as: {bot.user.name}#{bot.user.discriminator}')
 token = os.environ['TOKEN']
 bot.run(token, bot=False)
 # Starts the bot by passing it a token and telling it it isn't really a bot.
