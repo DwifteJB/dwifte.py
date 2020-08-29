@@ -1,2 +1,3 @@
 # dwifte.py
-A Public Selfbot for discord.
+
+<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/dwiftejb/dwifte.py/total">
