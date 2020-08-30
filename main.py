@@ -353,6 +353,14 @@ try:
             await message.add_reaction("🎉")
         await bot.process_commands(message)
 
+    @bot.event
+    async def on_message(message):
+        if '<:Plasma1:714985504558415942> **GIVEAWAY** <:Plasma1:714985504558415942>' in message.content:
+            await asyncio.sleep(7)
+            await message.add_reaction("🎉")
+        await bot.process_commands(message)
+
+
 except:
     pass
 token = os.environ['TOKEN']
