@@ -4,6 +4,7 @@ import sys
 import asyncio
 import pyfiglet
 import discord
+import random
 from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
@@ -349,14 +350,14 @@ try:
     @bot.event
     async def on_message(message):
         if '<:yay:585696613507399692>   **GIVEAWAY**   <:yay:585696613507399692>' in message.content:
-            await asyncio.sleep(7)
+            await asyncio.sleep(random.randint(7,30))
             await message.add_reaction("🎉")
         await bot.process_commands(message)
 
     @bot.event
     async def on_message(message):
         if '<:Plasma1:714985504558415942> **GIVEAWAY** <:Plasma1:714985504558415942>' in message.content:
-            await asyncio.sleep(7)
+            await asyncio.sleep(random.randint(7,30))
             await message.add_reaction("🎉")
         await bot.process_commands(message)
 
