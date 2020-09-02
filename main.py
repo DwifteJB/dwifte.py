@@ -70,12 +70,12 @@ try:
     @commands.check(self_check)
     @bot.command(pass_context=True)
     async def slap(ctx, mention = None)
-    if mention is None:
-        mention = {bot.user}
-    await ctx.message.delete()
-    embed=discord.Embed(title=f"{bot} slaps {mention}"}, color=0xe22400)
-    embed.set_thumbnail(url="https://media1.tenor.com/images/1cf84bf514d2abd2810588caf7d9fd08/tenor.gif?itemid=7679403")
-    await ctx.send(embed=embed)
+        if mention is None:
+            mention = {bot.user}
+        await ctx.message.delete()
+        embed=discord.Embed(title=f"{bot.user} slaps {mention}"}, color=0xe22400)
+        embed.set_thumbnail(url="https://media1.tenor.com/images/1cf84bf514d2abd2810588caf7d9fd08/tenor.gif?itemid=7679403")
+        await ctx.send(embed=embed)
     
     @commands.check(self_check)
     @bot.command(pass_context=True)
