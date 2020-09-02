@@ -254,7 +254,7 @@ try:
         await ctx.message.delete()
         uptime = datetime.datetime.utcnow() - start_time
         uptime = str(uptime).split('.')[0]
-        await ctx.send(f'`'+uptime+'`')
+        await ctx.send(f'I have been running for: '+uptime+'')
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
