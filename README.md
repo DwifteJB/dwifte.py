@@ -1,6 +1,4 @@
 # dwifte.py v1.1.0
-# Run VIA Heroku #
-
 <a href="https://heroku.com/deploy?template=https://github.com/dwiftejb/dwifte.py">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
