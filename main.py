@@ -67,8 +67,6 @@ try:
     async def watching(ctx, arg1):
         await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=arg1))
         await ctx.message.delete()
-        embed.set_thumbnail(url="https://media1.tenor.com/images/1cf84bf514d2abd2810588caf7d9fd08/tenor.gif?itemid=7679403")
-        await ctx.send(embed=embed)
     
     @commands.check(self_check)
     @bot.command(pass_context=True)
