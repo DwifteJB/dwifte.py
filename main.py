@@ -57,7 +57,7 @@ try:
     @bot.command(pass_context=True)
     async def kiss(ctx, user:discord.Member):
         await ctx.message.delete()
-        embed=discord.Embed(title=f"{bot.user} kissed {user.mention}", color=0xe22400)
+        embed=discord.Embed(title=f"{bot.user} kissed {user.name}", color=0xe22400)
         embed.set_thumbnail(url="https://media.tenor.com/images/a6669f4044d66658c7ce96be768965e4/tenor.gif")
         await ctx.send(embed=embed)
         
