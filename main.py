@@ -2,6 +2,7 @@ import os
 import urllib.request
 import sys
 import asyncio
+import datetime
 import pyfiglet
 import discord
 import random
@@ -66,14 +67,6 @@ try:
     async def watching(ctx, arg1):
         await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=arg1))
         await ctx.message.delete()
-
-    @commands.check(self_check)
-    @bot.command(pass_context=True)
-    async def slap(ctx, mention = None)
-        if mention is None:
-            mention = {bot.user}
-        await ctx.message.delete()
-        embed=discord.Embed(title=f"{bot.user} slaps {mention}"}, color=0xe22400)
         embed.set_thumbnail(url="https://media1.tenor.com/images/1cf84bf514d2abd2810588caf7d9fd08/tenor.gif?itemid=7679403")
         await ctx.send(embed=embed)
     
@@ -255,6 +248,14 @@ try:
             except:
                 print(f"{user.name} has NOT recieved the message.")
         print("Action Completed: mall")
+
+    @commands.check(self_check)
+    @bot.command(pass_context=True)
+    async def uptime(ctx):
+        await ctx.message.delete()
+        uptime = datetime.datetime.utcnow() - start_time
+        uptime = str(uptime).split('.')[0]
+        await ctx.send(f'`'+uptime+'`')
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
