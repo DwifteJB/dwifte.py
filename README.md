@@ -12,17 +12,8 @@
 <br>
 <br>
 
-# RUN VIA NETWORK #
-
-Not implimented :)
-
 ## Commands ##
-
-Special thanks to <a src="https://github.com/CrafterPika">CrafterPika</a> for all the help <3<br>
-
 Use "" around arguments to use multiple words.
-
-Comes with a giveaway sniper ;)
 
 Command       | Info | Permissions
 ------------- | ------------- | -------------
@@ -48,14 +39,13 @@ Command       | Info | Permissions
 -ping  | Shows Ping in MS: -ping | NONE
 -gp  | Ghost Pings: -gp {mention} | NONE
 -attachspam  | Spams attachment using link: -gp {link} | SEND_ATTACHMENTS
+-avatar  | Gets someone's avatar: -avatar @mention | SEND_ATTACHMENTS
+-hug  | uwu hug: -hug {mention} | NONE
+-kiss  | uwu kiss: -kiss {mention} | NONE
+-uptime  | Checks Uptime: -uptime| NONE
 <br>
 
 ### Other Info ###
 
-As of version 1.0.0, heroku is the only way to deploy the bot. 
-<br>
-<br>
 Created by DwifteJB and CrafterPika
 <br>
-<br>
-Do not skid this selfbot. You can edit the code but do not redistribute it saying it is 'yours'. That is scummy.
