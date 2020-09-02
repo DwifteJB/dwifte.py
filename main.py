@@ -55,6 +55,14 @@ try:
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
+    async def hug(ctx, user:discord.Member):
+        await ctx.message.delete()
+        embed=discord.Embed(title=f"{bot.user} hugged {user.name}", color=0xe22400)
+        embed.set_thumbnail(url="https://acegif.com/wp-content/uploads/anime-hug.gif")
+        await ctx.send(embed=embed)
+
+    @commands.check(self_check)
+    @bot.command(pass_context=True)
     async def kiss(ctx, user:discord.Member):
         await ctx.message.delete()
         embed=discord.Embed(title=f"{bot.user} kissed {user.name}", color=0xe22400)
@@ -138,7 +146,7 @@ try:
     @commands.check(self_check)
     @bot.command(pass_context=True)
     async def streaming(ctx, arg1):
-        await bot.change_presence(activity = discord.Streaming(name = arg1, url = "https://twitch.tv/pornhub"))
+        await bot.change_presence(activity = discord.Streaming(name = arg1, url = "https://twitch.tv/yetcallable"))
         await ctx.message.delete()
 
     @commands.check(self_check)
@@ -155,7 +163,6 @@ try:
     async def stop(ctx):
         await ctx.message.delete()
         sys.exit()
-
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -210,7 +217,7 @@ try:
     @commands.check(self_check)
     @bot.command(pass_context=True)
     async def help(ctx):
-        await ctx.send("CONSOLE")
+        await ctx.message.delete()
         print ("")
         print (f"{prefix}stop: Stops Bot")
         print (f"{prefix}ping: Shows PING")
