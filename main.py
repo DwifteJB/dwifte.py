@@ -10,6 +10,7 @@ from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
 version = "release1.1"
+start_time = datetime.datetime.utcnow()
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
