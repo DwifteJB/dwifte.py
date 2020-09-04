@@ -417,4 +417,4 @@ try:
 
 except:
     pass
-bot.run(config["token"], bot=False)
+bot.run(token, bot=False)
