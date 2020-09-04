@@ -11,10 +11,10 @@ import random
 import json
 from discord import File, Message
 from discord.ext import commands
-from discord.ext.commands import 
-Bot
-from config import token, prefix
+from discord.ext.commands import Bot
 start_time = datetime.datetime.utcnow()
+
+config = json.load(open('config.json', 'r'))
 
 # <CONFIG> 
 version = "1.2.0"
@@ -28,11 +28,10 @@ try:
     heroku = True
 except KeyError:
     heroku = False
-    config = json.load(open('config.json', 'r'))
-    prefix = prefix
-    token = token
+    prefix = config["prefix"]
+    token = config["token"]
 
-bot = commands.Bot(command_prefix=prefix, self_bot=True)
+bot = commands.Bot(command_prefix=config["token"], self_bot=True)
 bot.remove_command("help")
 
 @bot.event
@@ -418,4 +417,4 @@ try:
 
 except:
     pass
-bot.run(token, bot=False)
+bot.run(config["token"], bot=False)
