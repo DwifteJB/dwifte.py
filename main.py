@@ -8,24 +8,42 @@ import datetime
 import pyfiglet
 import discord
 import random
+import json
+import re
+import requests
+import aiohttp
+import io
+from colorama import Fore
 from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
-version = "release1.1"
 start_time = datetime.datetime.utcnow()
+
+
+# <CONFIG> 
+version = "1.2.0"
+colors = [0x00f5b8, 0xe22400, 0x477015, 0xe9cb0c, 0x900ce9, 0x0cc8e9, 0x31e90c, 0x850ce9, 0x0c59e9, 0x02294b, 0x105035, 0x52e010, 0xfbff00, 0x0088ff, 0xff6600]
+answers = ['Yes', 'No', 'Maybe']
+changelog = f"{version}: Hybrid, works with or without heroku (thanks crafterpika!!!), Nitro Sniper (thanks crafterpika!)"
+# <CONFIG> 
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
     heroku = True
 except KeyError:
     heroku = False
+    config = json.load(open('config.json', 'r'))
+    prefix = config["prefix"]
+    token = config["token"]
 
-bot = commands.Bot(command_prefix=prefix, self_bot=True)
+bot = commands.Bot(command_prefix=config["token"], self_bot=True)
 bot.remove_command("help")
 
+
+# bot events
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n{changelog}')
 
 try:
     async def self_check(ctx):
@@ -33,6 +51,104 @@ try:
             return True
         else:
             return False
+
+    #Bot Events
+    @bot.event
+    async def on_message(message):
+        if '<:yay:585696613507399692>   **GIVEAWAY**   <:yay:585696613507399692>' in message.content:
+            await asyncio.sleep(random.randint(7,30))
+            await message.add_reaction("🎉")
+        await bot.process_commands(message)
+
+    @bot.event
+    async def on_message(message):
+        if '<:Plasma1:714985504558415942> **GIVEAWAY** <:Plasma1:714985504558415942>' in message.content:
+            await asyncio.sleep(random.randint(7,30))
+            await message.add_reaction("🎉")
+        await bot.process_commands(message)
+
+    @bot.event
+    async def on_message(message):
+	    try:
+		    code = re.search(r'(discord.gift|discordapp.com/gifts)/\w{16,24}', message.content).group(0)
+		    if code:
+			    print("Nitro Code:", code)
+
+			    def returnData(status, code, value1, value2):
+				    if status == 'INVALID CODE' or 'DENIED':
+					    perhaps = Fore.RED
+				    elif status == 'ALREADY REDEEMED' or 'RATELIMITED' or 'UNKNOWN':
+					    perhaps = Fore.YELLOW
+				    else:
+					    perhaps = Fore.GREEN
+				    data = print(f'[{perhaps}{status}{Fore.RESET}] - [{Fore.CYAN}{code}{Fore.RESET}] - [{Fore.YELLOW}{value1}{Fore.RESET}] - [{Fore.YELLOW}{value2}{Fore.RESET}]')
+				    return data
+
+			    errors = {
+      				    1: '{"message": "Unknown Gift Code", "code": 10038}',
+      				    2: '{"message": "This gift has been redeemed already.", "code": 50050}',
+      				    3: 'You are being rate limited',
+      				    4: 'Access denied'
+    			    }
+			    payload = {
+          			    'channel_id': None,
+          			    'payment_source_id': None
+        		    }
+			    headers = {
+      				    'Content-Type': 'application/json',
+      				    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.306 Chrome/78.0.3904.130 Electron/7.1.11 Safari/537.36',
+      				    'Authorization': config["token"]
+    			    }
+
+			    session = requests.Session()
+			    r = session.post(f'https://discordapp.com/api/v6/entitlements/gift-codes/{code.replace("discord.gift/", "")}/redeem', headers=headers, json=payload)
+			    if errors[1] in r.text:
+				    returnData('INVALID CODE', code, message.guild, message.author)
+				    open('nitro-logs.txt', 'a+').write(f'[WARN] Invalid Code {code} | {message.guild} | {message.author}'+'\n')
+			    elif errors[2] in r.text:
+				    returnData('ALREADY REDEEMED', code, message.guild, message.author)
+				    open('nitro-logs.txt', 'a+').write(f'[INFO] Already redeemed Code {code} | {message.guild} | {message.author}'+'\n')
+			    elif errors[3] in r.text:
+				    returnData('RATELIMITED', code, message.guild, message.author)
+				    open('nitro-logs.txt', 'a+').write(f'[WARN] RateLimited'+'\n')
+			    elif errors[4] in r.text:
+				    returnData('DENIED', code, message.guild, message.author)
+				    open('nitro-logs.txt', 'a+').write(f'[WARN] Denied'+'\n')
+			    else:
+				    returnData('CLAIMED', code, message.guild, message.author)
+				    open('nitro-logs.txt', 'a+').write(f'[INFO] Claimed Code {code} | {message.guild} | {message.author} | {r.text}'+'\n')
+
+	    except AttributeError:
+              pass
+	    await bot.process_commands(message)
+
+    #Bot Commands
+    @commands.check(self_check)
+    @bot.command(pass_context=True)
+    async def help(ctx):
+        await ctx.message.delete()
+        print ("")
+        print (f"{prefix}stop: Stops Bot")
+        print (f"{prefix}ping: Shows PING")
+        print (f"{prefix}download_png: Downloads Image")
+        print (f"{prefix}xpbot: XP Bots")
+        print (f"{prefix}ping: Shows PING")
+        print (f"{prefix}attachspam: Spams Attachment")
+        print (f"{prefix}spam: Spams selected message")
+        print (f"{prefix}dmspam: Spams selected ID")
+        print (f"{prefix}rall: Renamed everyone")
+        print (f"{prefix}kall: Kicks Everyone")
+        print (f"{prefix}ball: Bans Everyone")
+        print (f"{prefix}dall: Deletes Every channel")
+        print (f"{prefix}gp: Ghost Pings mention")
+        print (f"{prefix}say: Shows an embed")
+        print (f"{prefix}asay: Type in ascaii")
+        print (f"{prefix}purge: Purges chat/select amount")
+        print (f"{prefix}streaming: Show a streaming status")
+        print (f"{prefix}playing: Show a playing status")
+        print (f"{prefix}listening: Shows a listening status")
+        print (f"{prefix}watching: Shows a watching status")
+        print ("")
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
@@ -216,33 +332,6 @@ try:
 
     @commands.check(self_check)
     @bot.command(pass_context=True)
-    async def help(ctx):
-        await ctx.message.delete()
-        print ("")
-        print (f"{prefix}stop: Stops Bot")
-        print (f"{prefix}ping: Shows PING")
-        print (f"{prefix}download_png: Downloads Image")
-        print (f"{prefix}xpbot: XP Bots")
-        print (f"{prefix}ping: Shows PING")
-        print (f"{prefix}attachspam: Spams Attachment")
-        print (f"{prefix}spam: Spams selected message")
-        print (f"{prefix}dmspam: Spams selected ID")
-        print (f"{prefix}rall: Renamed everyone")
-        print (f"{prefix}kall: Kicks Everyone")
-        print (f"{prefix}ball: Bans Everyone")
-        print (f"{prefix}dall: Deletes Every channel")
-        print (f"{prefix}gp: Ghost Pings mention")
-        print (f"{prefix}say: Shows an embed")
-        print (f"{prefix}asay: Type in ascaii")
-        print (f"{prefix}purge: Purges chat/select amount")
-        print (f"{prefix}streaming: Show a streaming status")
-        print (f"{prefix}playing: Show a playing status")
-        print (f"{prefix}listening: Shows a listening status")
-        print (f"{prefix}watching: Shows a watching status")
-        print ("")
-
-    @commands.check(self_check)
-    @bot.command(pass_context=True)
     async def rall(ctx, rename_to):
         await ctx.message.delete()
         for user in list(ctx.guild.members):
@@ -389,22 +478,12 @@ try:
             await ctx.send(file=File('./data/cached.png'))
             await asyncio.sleep(0.0)
 
-    @bot.event
-    async def on_message(message):
-        if '<:yay:585696613507399692>   **GIVEAWAY**   <:yay:585696613507399692>' in message.content:
-            await asyncio.sleep(random.randint(7,30))
-            await message.add_reaction("🎉")
-        await bot.process_commands(message)
-
-    @bot.event
-    async def on_message(message):
-        if '<:Plasma1:714985504558415942> **GIVEAWAY** <:Plasma1:714985504558415942>' in message.content:
-            await asyncio.sleep(random.randint(7,30))
-            await message.add_reaction("🎉")
-        await bot.process_commands(message)
+    @bot.command(pass_context=True, name="8ball")
+    async def eigth_ball(ctx, arg1):
+	    eigth_ball_embed=discord.Embed(color=random.choice(colors), description=random.choice(answers))
+	    await ctx.send(embed=eigth_ball_embed)
 
 
 except:
     pass
-token = os.environ['TOKEN']
 bot.run(token, bot=False)
