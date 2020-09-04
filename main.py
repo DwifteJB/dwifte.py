@@ -8,24 +8,36 @@ import datetime
 import pyfiglet
 import discord
 import random
+import json
 from discord import File, Message
 from discord.ext import commands
-from discord.ext.commands import Bot
-version = "release1.1"
+from discord.ext.commands import 
+Bot
+from config import token, prefix
 start_time = datetime.datetime.utcnow()
+
+# <CONFIG> 
+version = "1.2.0"
+colors = [0x00f5b8, 0xe22400, 0x477015, 0xe9cb0c, 0x900ce9, 0x0cc8e9, 0x31e90c, 0x850ce9, 0x0c59e9, 0x02294b, 0x105035, 0x52e010, 0xfbff00, 0x0088ff, 0xff6600]
+answers = ['Yes', 'No', 'Maybe']
+changelog = f"{version}: Hybrid, works with or without heroku (thanks crafterpika!!!), Nitro Sniper (thanks crafterpika!)"
+# <CONFIG> 
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
     heroku = True
 except KeyError:
     heroku = False
+    config = json.load(open('config.json', 'r'))
+    prefix = prefix
+    token = token
 
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command("help")
 
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n{changelog}')
 
 try:
     async def self_check(ctx):
@@ -406,5 +418,4 @@ try:
 
 except:
     pass
-token = os.environ['TOKEN']
 bot.run(token, bot=False)
