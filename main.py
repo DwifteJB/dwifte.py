@@ -19,7 +19,6 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 start_time = datetime.datetime.utcnow()
 
-config = json.load(open('config.json', 'r'))
 
 # <CONFIG> 
 version = "1.2.0"
@@ -33,6 +32,7 @@ try:
     heroku = True
 except KeyError:
     heroku = False
+    config = json.load(open('config.json', 'r'))
     prefix = config["prefix"]
     token = config["token"]
 
