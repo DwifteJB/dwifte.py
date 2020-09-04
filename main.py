@@ -19,7 +19,6 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 start_time = datetime.datetime.utcnow()
 
-config = json.load(open('config.json', 'r'))
 
 # <CONFIG> 
 version = "1.2.0"
@@ -33,6 +32,7 @@ try:
     heroku = True
 except KeyError:
     heroku = False
+    config = json.load(open('config.json', 'r'))
     prefix = config["prefix"]
     token = config["token"]
 
@@ -43,7 +43,7 @@ bot.remove_command("help")
 # bot events
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n{changelog}\nMade by CrafterPika and DwifteJB ')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n{changelog}')
 
 try:
     async def self_check(ctx):
@@ -148,9 +148,6 @@ try:
         print (f"{prefix}playing: Show a playing status")
         print (f"{prefix}listening: Shows a listening status")
         print (f"{prefix}watching: Shows a watching status")
-        print (f"{prefix}kiss: Kiss someone ;)")
-        print (f"{prefix}hug: Hug someone")
-        print (f"{prefix}uptime: Check bots uptime")
         print ("")
 
     @commands.check(self_check)
