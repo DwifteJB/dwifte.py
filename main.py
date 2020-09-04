@@ -19,6 +19,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 start_time = datetime.datetime.utcnow()
 
+config = json.load(open('config.json', 'r'))
 
 # <CONFIG> 
 version = "1.2.0"
@@ -43,7 +44,7 @@ bot.remove_command("help")
 # bot events
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n{changelog}')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n{changelog}\nMade by CrafterPika and DwifteJB')
 
 try:
     async def self_check(ctx):
@@ -148,6 +149,10 @@ try:
         print (f"{prefix}playing: Show a playing status")
         print (f"{prefix}listening: Shows a listening status")
         print (f"{prefix}watching: Shows a watching status")
+        print (f"{prefix}uptime: Shows bot uptime")
+        print (f"{prefix}hug: uwu hug lol")
+        print (f"{prefix}kiss: virgin kiss")
+        print (f"{prefix}8ball: Shows your future")
         print ("")
 
     @commands.check(self_check)
@@ -486,4 +491,4 @@ try:
 
 except:
     pass
-bot.run(token, bot=False)
+bot.run(token, bot=False) 
