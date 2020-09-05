@@ -6,6 +6,7 @@ from config import colors
 import sys
 import aiohttp
 import io
+import os
 import datetime
 import pyfiglet
 
