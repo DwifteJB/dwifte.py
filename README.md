@@ -14,10 +14,6 @@
   <img src="https://i.ibb.co/ZHKS2K6/effects-tried-0-photos-added-0-origin-unknown-total-effects-actions-0-remix-data-add-photo-directory.jpg" height="45" width="175" alt="Download">
 </a>
 <br>
-<a href="https://github.com/DwifteJB/dwifte.py/archive/master.zip">
-  <img src="https://i.ibb.co/ZHKS2K6/effects-tried-0-photos-added-0-origin-unknown-total-effects-actions-0-remix-data-add-photo-directory.jpg" height="45" width="175" alt="Download">
-</a>
-<br>
 <br>
 
 ## Commands ##
