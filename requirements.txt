@@ -6,3 +6,4 @@ pyfiglet
 asyncio
 datetime
 colorama
+pillow
