@@ -1,7 +1,5 @@
 
 # dwifte.py
-=======
-# dwifte.py
 <p>A Public Selfbot for discord.</p>
 <img src="https://i.ibb.co/wwQGL6w/effects-tried-0-photos-added-0-origin-gallery-total-effects-actions-0-remix-data-tools-used-tilt-shi.jpg" width="120">
 
