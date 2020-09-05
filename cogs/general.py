@@ -6,6 +6,7 @@ from discord import File, Message
 from config import colors
 import sys
 import aiohttp
+import json
 import io
 import os
 import datetime
