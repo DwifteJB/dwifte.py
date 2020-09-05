@@ -96,7 +96,7 @@ class general_cog(commands.Cog):
         uptime = datetime.datetime.utcnow() - start_time
         uptime = str(uptime).split('.')[0]
         await ctx.send(f'I have been running for: '+uptime+'')
-        embed=discord.Embed(title=f"{bot.user} Info", description="Tells you info about you. Yes you.")
+        embed=discord.Embed(title=f"{self.bot.user.name} Info", description="Tells you info about you. Yes you.")
         embed.add_field(name="Uptime", value=f''+uptime+'', inline=False)
         embed.add_field(name="Prefix", value=f'{prefix}', inline=True)
         embed.add_field(name="Ping", value=f'{round(self.bot.latency * 1000)}ms', inline=True)
