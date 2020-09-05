@@ -485,7 +485,6 @@ try:
     @bot.command(pass_context=True, name="8ball")
     async def eigth_ball(ctx, message: Message):
 	    eigth_ball_embed=discord.Embed(color=random.choice(colors), title=message, description=random.choice(answers))
-            await ctx.send(message)
 	    await ctx.send(embed=eigth_ball_embed)
 
 
