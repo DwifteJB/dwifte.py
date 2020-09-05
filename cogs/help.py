@@ -1,5 +1,14 @@
 from discord.ext import commands
-from config import prefix
+import json
+import os
+
+try:
+    prefix = os.environ['PREFIX']
+    heroku = True
+except KeyError:
+    heroku = False
+    config = json.load(open('config.json', 'r'))
+    prefix = config["prefix"]
 
 class help_cog(commands.Cog):
     def __init__(self, bot):

@@ -18,9 +18,9 @@ from colorama import Fore
 from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
+from config import version, changelog
 start_time = datetime.datetime.utcnow()
 
-config = json.load(open('config.json', 'r'))
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
@@ -38,7 +38,7 @@ bot.remove_command("help")
 # bot events
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n{changelog}\nMade by CrafterPika and DwifteJB')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n\nChangelog:\n{changelog}\n\nMade by CrafterPika and DwifteJB')
 
 #Bot Events
 @bot.event
