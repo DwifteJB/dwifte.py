@@ -8,6 +8,7 @@ import aiohttp
 import io
 import datetime
 import pyfiglet
+import os
 
 start_time = datetime.datetime.utcnow()
 
