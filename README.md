@@ -35,7 +35,7 @@ Command       | Info | Permissions
 -dall  | Deletes all Channels and Roles: -dall | MANAGE_CHANNELS, MANAGE_ROLES
 -mall  | Messages everyone: -mall | DM
 -asay  | Sends an ascaii Message uwu: -asay {"MESSAGE"} | NONE
--destroy  | Bans everyone, deletes all roles, channels and Emojis : -destroy | BAN, MANAGE_CHANNELS, MANAGE_ROLES, MANAGE_ROLES
+-destroy  | Bans everyone, deletes all roles, channels and Emojis : -destroy | BAN, MANAGE_CHANNELS, MANAGE_ROLES, MANAGE_EMOJIS
 -ping  | Shows Ping in MS: -ping | NONE
 -gp  | Ghost Pings: -gp {mention} | NONE
 -attachspam  | Spams attachment using link: -gp {link} | SEND_ATTACHMENTS
