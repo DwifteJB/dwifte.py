@@ -5,3 +5,4 @@ aiohttp
 pyfiglet
 asyncio
 datetime
+colorama
