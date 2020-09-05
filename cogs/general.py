@@ -16,13 +16,11 @@ start_time = datetime.datetime.utcnow()
 
 try:
     prefix = os.environ['PREFIX']
-    token = os.environ['TOKEN']
     heroku = True
 except KeyError:
     heroku = False
     config = json.load(open('config.json', 'r'))
     prefix = config["prefix"]
-    token = config["token"]
 
 class general_cog(commands.Cog):
     def __init__(self, bot):
