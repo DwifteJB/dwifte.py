@@ -37,7 +37,7 @@ except KeyError:
     prefix = config["prefix"]
     token = config["token"]
 
-bot = commands.Bot(command_prefix=config["token"], self_bot=True)
+bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command("help")
 
 
@@ -166,7 +166,6 @@ try:
             arg3 = ""
         if arg4 is None:
             arg4 = ""
-
         await ctx.message.delete()
         embed=discord.Embed(title=arg1, description=arg2, color=0xe22400)
         embed.set_thumbnail(url=arg4)
