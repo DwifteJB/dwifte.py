@@ -43,6 +43,7 @@ Command       | Info | Permissions
 -hug  | uwu hug: -hug {mention} | NONE
 -kiss  | uwu kiss: -kiss {mention} | NONE
 -uptime  | Checks Uptime: -uptime| NONE
+-8ball  | Chance: -8ball {message} | NONE
 <br>
 
 ### Other Info ###
