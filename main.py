@@ -1,6 +1,6 @@
+import os
 import io
 import aiohttp
-import os
 import urllib.request
 import sys
 import asyncio
@@ -13,6 +13,7 @@ import re
 import requests
 import aiohttp
 import io
+from config import version, changelog
 from colorama import Fore
 from discord import File, Message
 from discord.ext import commands
@@ -20,13 +21,6 @@ from discord.ext.commands import Bot
 start_time = datetime.datetime.utcnow()
 
 config = json.load(open('config.json', 'r'))
-
-# <CONFIG> 
-version = "1.2.0"
-colors = [0x00f5b8, 0xe22400, 0x477015, 0xe9cb0c, 0x900ce9, 0x0cc8e9, 0x31e90c, 0x850ce9, 0x0c59e9, 0x02294b, 0x105035, 0x52e010, 0xfbff00, 0x0088ff, 0xff6600]
-answers = ['Yes', 'No', 'Maybe']
-changelog = f"{version}: Hybrid, works with or without heroku (thanks crafterpika!!!), Nitro Sniper (thanks crafterpika!)"
-# <CONFIG> 
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
