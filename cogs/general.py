@@ -1,6 +1,7 @@
 import discord
 import random
 from discord.ext import commands
+from discord.ext.commands import Bot
 from discord import File, Message
 from config import colors
 import sys
