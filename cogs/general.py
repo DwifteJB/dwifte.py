@@ -11,6 +11,16 @@ import pyfiglet
 
 start_time = datetime.datetime.utcnow()
 
+try:
+    prefix = os.environ['PREFIX']
+    token = os.environ['TOKEN']
+    heroku = True
+except KeyError:
+    heroku = False
+    config = json.load(open('config.json', 'r'))
+    prefix = config["prefix"]
+    token = config["token"]
+
 class general_cog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -78,6 +88,20 @@ class general_cog(commands.Cog):
         uptime = datetime.datetime.utcnow() - start_time
         uptime = str(uptime).split('.')[0]
         await ctx.send(f'I have been running for: '+uptime+'')
+        
+
+    @commands.command(pass_context=True)
+    async def info(self, ctx):
+        await ctx.message.delete()
+        uptime = datetime.datetime.utcnow() - start_time
+        uptime = str(uptime).split('.')[0]
+        await ctx.send(f'I have been running for: '+uptime+'')
+        embed=discord.Embed(title=f"{bot.user} Info", description="Tells you info about you. Yes you.")
+        embed.add_field(name="Uptime", value=f'I have been running for: '+uptime+'', inline=False)
+        embed.add_field(name="Prefix", value=f"{prefix}", inline=True)
+        embed.add_field(name="Ping", value=f"{round(self.bot.latency * 1000)}ms", inline=True)
+        embed.set_footer(text="Dwifte.PY | 1.3.0")
+        await ctx.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def asay(self, ctx, arg1 = None):
