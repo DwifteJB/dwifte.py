@@ -1,6 +1,6 @@
-import os
 import io
 import aiohttp
+import os
 import urllib.request
 import sys
 import asyncio
@@ -13,14 +13,13 @@ import re
 import requests
 import aiohttp
 import io
-from config import version, changelog
 from colorama import Fore
 from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import version, changelog
 start_time = datetime.datetime.utcnow()
-
+ 
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
