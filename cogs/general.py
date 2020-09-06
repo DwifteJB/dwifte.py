@@ -115,6 +115,26 @@ class general_cog(commands.Cog):
         print ("Action Completed: purge")
 
     @commands.command(pass_context=True)
+    async def short(self, ctx, *, link):
+        await ctx.message.delete()
+        if bitly_key == '':
+            print(f"[ERROR]: Bitly API Key was not found, please set it in config.json or the Heroku Settings (get one at bit.ly)")
+        else:
+            try:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(f'https://api-ssl.bitly.com/v3/shorten?longUrl={link}&domain=bit.ly&format=json&access_token={bitly_key}') as req:
+                        r = await req.read()
+                        r = json.loads(r) 
+                new = r['data']['url']
+                em = discord.Embed()
+                em.add_field(name='Shortened link', value=new, inline=False)
+                await ctx.send(embed=em)
+            except Exception as e:
+                print(f"[ERROR]:{e}")
+            else:
+                print(f"[ERROR]:{req.text}")
+
+    @commands.command(pass_context=True)
     async def info(self, ctx):
         await ctx.message.delete()
         uptime = datetime.datetime.utcnow() - start_time
