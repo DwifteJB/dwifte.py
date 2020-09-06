@@ -1,6 +1,7 @@
 import aiohttp
 import os
 import requests
+from bs4 import BeautifulSoup
 import discord
 import random
 import youtube_dl
@@ -30,7 +31,9 @@ class general_cog(commands.Cog):
             'file': ('./data/video.mp4', open('./data/video.mp4', 'rb')),
         }
         response = requests.post('https://api.filepipe.io/upload.php', files=files)
-        await ctx.send(response.code)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        row = soup.find('code')
+        await ctx.send(row.get_text())
 
     @commands.command(pass_through=True)
     async def tweet(self, ctx, arg1 = None, arg2 = None):
