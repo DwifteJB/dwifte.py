@@ -6,4 +6,4 @@ kiss = ['https://media.tenor.com/images/a6669f4044d66658c7ce96be768965e4/tenor.g
 kiss_description = ['How Cute 🧡', 'OwO a kiss 😘', '😳']
 hug = ['https://acegif.com/wp-content/uploads/anime-hug.gif', 'https://media1.tenor.com/images/506aa95bbb0a71351bcaa753eaa2a45c/tenor.gif', 'https://acegif.com/wp-content/gif/anime-hug-79.gif', 'https://media1.tenor.com/images/f20151a1f7e003426ca7f406b6f76c82/tenor.gif', 'https://media1.tenor.com/images/fd47e55dfb49ae1d39675d6eff34a729/tenor.gif']
 hug_description = ['Awwww 🥰', 'A Hug OwO 💘', '🥵']
-sock5proxy = ['219.137.72.234:1080', '218.92.231.162:1080', '117.30.38.73:1080',]
+sock5proxy = ['219.137.72.234:1080', '218.92.231.162:1080', '117.30.38.73:1080', '119.254.94.99:9999', '132.148.159.44:32551', '184.176.166.13:4145']
