@@ -23,6 +23,7 @@ class general_cog(commands.Cog):
         await ctx.message.delete()
         ydl_opts = {
             'outtmpl': os.path.join('./data/video.mp4'),
+            'proxy': 'socks5://127.0.0.1:1080',
             }
 
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
