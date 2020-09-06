@@ -49,7 +49,11 @@ async def on_connect():
       print ("Dwifte.PY is up to date!")
   else:
       print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
-      os._exit(1)
+      try:
+          sys.exit()
+      except:
+          print("Quitting bot due to oudated version")
+          os._exit(1)
 
 #Bot Events
 @bot.event
@@ -129,5 +133,5 @@ bot.load_extension("cogs.spam")
 bot.load_extension("cogs.random")
 bot.load_extension("cogs.ImgTools")
 
-bot.run(token, bot=False) 
+bot.run(token, bot=False)
 # speakl thanks to crafterpika for the help ;)
