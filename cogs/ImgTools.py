@@ -4,6 +4,7 @@ import os
 import urllib.request
 from discord import File
 from discord.ext import commands
+import qrcode
 
 class ImgTools_cog(commands.Cog):
     def __init__(self, bot):
@@ -228,6 +229,14 @@ class ImgTools_cog(commands.Cog):
         await ctx.send(file=File('./data/maniplulated.png'))
         os.remove('./data/maniplulated.png')
         os.remove('./data/cached2.png')
+
+    @commands.command(pass_context=True)
+    async def gen_qr(self, ctx, arg1):
+        await ctx.message.delete()
+        qr = qrcode.make(arg1)
+        qr.save('./data/gen_qr.png')
+        await ctx.send(file=File('./data/gen_qr.png'))
+        os.remove('./data/gen_qr.png')
 
 
 def setup(bot: commands.Bot):
