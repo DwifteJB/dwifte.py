@@ -8,3 +8,4 @@ datetime
 colorama
 pillow
 qrcode
+pytube
