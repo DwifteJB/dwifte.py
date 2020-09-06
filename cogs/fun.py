@@ -1,4 +1,5 @@
 import aiohttp
+import os
 import requests
 import discord
 import random
