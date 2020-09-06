@@ -42,7 +42,6 @@ class spam_cog(commands.Cog):
         print ("-stop to stop")
         print ("Action Started: xpbot")
         for i in range(9999):
-            await ctx.message.delete()
             await ctx.send("Hello")
             print ("Sent Message")
             await ctx.message.delete()
