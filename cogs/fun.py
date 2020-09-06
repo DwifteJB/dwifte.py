@@ -1,6 +1,7 @@
 import aiohttp
 import discord
 import random
+import youtube_dl
 from discord.ext import commands
 from discord import File, Message
 from config import colors, answers, kiss, kiss_description, hug, hug_description
@@ -13,6 +14,21 @@ class general_cog(commands.Cog):
     async def eigth_ball(self, ctx, arg1):
         eigth_ball_embed=discord.Embed(color=random.choice(colors), description=random.choice(answers))
         await ctx.send(embed=eigth_ball_embed)
+
+    @commands.command(pass_context=True)
+    async def youtube_dl(self, ctx, arg1):
+        await ctx.message.delete()
+        ydl_opts = {
+            'outtmpl': os.path.join('./data/video.mp4'),
+            }
+
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([arg1])
+        files = {
+            'file': ('./data/video.mp4', open('./data/video.mp4', 'rb')),
+        }
+        response = requests.post('https://api.filepipe.io/upload.php', files=files)
+        await ctx.send(f"{response}")
 
     @commands.command(pass_through=True)
     async def tweet(self, ctx, arg1 = None, arg2 = None):
