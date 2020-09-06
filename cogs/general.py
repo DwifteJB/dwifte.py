@@ -44,7 +44,6 @@ class general_cog(commands.Cog):
         embed.set_footer(text=arg3)
         await ctx.send(embed=embed)
         print ("Action Completed: say")
-
     @commands.command(pass_context=True)
     async def playing(self, ctx, arg1):
         await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=arg1))
