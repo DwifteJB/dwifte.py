@@ -52,7 +52,7 @@ async def on_connect():
       try:
           sys.exit()
       except:
-          print("Quitting bot due to oudated version")
+          print("Quitting bot due to Outdated version")
           os._exit(1)
 
 #Bot Events
