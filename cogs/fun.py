@@ -1,4 +1,5 @@
 import aiohttp
+import requests
 import discord
 import random
 import youtube_dl
