@@ -16,7 +16,7 @@ class help_cog(commands.Cog):
 
     @commands.command(pass_context=True)
     async def help(self, ctx):
-        await ctx.send("CONSOLE")
+        await ctx.message.delete()
         print ("")
         print (f"{prefix}stop: Stops Bot")
         print (f"{prefix}ping: Shows PING")
@@ -47,6 +47,7 @@ class help_cog(commands.Cog):
         print (f"{prefix}invert [img url]: inverts a img")
         print (f"{prefix}grey_out [img url]: makes a img grey white")
         print (f"{prefix}combine [img url] [img you wanna paste into]: combines to imgs")
+        await ctx.send("https://github.com/DwifteJB/dwifte.py/blob/master/README.md#commands")
 
 def setup(bot: commands.Bot):
     bot.add_cog(help_cog(bot))
