@@ -117,16 +117,6 @@ class general_cog(commands.Cog):
         print ("Action Completed: purge")
 
     @commands.command(pass_context=True)
-    async def tweet(self, ctx, username: str, *, message: str):
-        await ctx.message.delete()
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={message}") as r:
-                res = await r.json()
-                em = discord.Embed()
-                em.set_image(url=res["message"])
-                await ctx.send(embed=em)
-
-    @commands.command(pass_context=True)
     async def bitly(self, ctx, *, link):
         await ctx.message.delete()
         if bitly_key == '':
