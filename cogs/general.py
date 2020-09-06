@@ -44,6 +44,20 @@ class general_cog(commands.Cog):
         embed.set_footer(text=arg3)
         await ctx.send(embed=embed)
         print ("Action Completed: say")
+
+    @commands.command(pass_through=True)
+    async def tweet(ctx, arg1 = None, arg2 = None):
+        if arg1 is None:
+            arg1 = "CrafterPika"
+        if arg2 is None:
+            arg2 = "I am amazing, trust me."
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={arg1}&text={arg2}") as r:
+                res = await r.json()
+                em = discord.Embed()
+                em.set_image(url=res["message"])
+                await ctx.send(embed=em)
+
     @commands.command(pass_context=True)
     async def playing(self, ctx, arg1):
         await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=arg1))
