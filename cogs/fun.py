@@ -7,7 +7,7 @@ import random
 import youtube_dl
 from discord.ext import commands
 from discord import File, Message
-from config import colors, answers, kiss, kiss_description, hug, hug_description
+from config import colors, answers, kiss, kiss_description, hug, hug_description, sock5proxy
 
 class general_cog(commands.Cog):
     def __init__(self, bot):
@@ -20,7 +20,7 @@ class general_cog(commands.Cog):
 
     @commands.command(pass_context=True)
     async def sock5(self, ctx):
-        r = requests.post('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=99999999')
+        r = requests.post('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=600')
         await ctx.send(r.text)
     
     @commands.command(pass_context=True)
