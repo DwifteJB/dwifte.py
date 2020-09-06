@@ -42,9 +42,9 @@ class spam_cog(commands.Cog):
         print ("-stop to stop")
         print ("Action Started: xpbot")
         for i in range(9999):
-            await ctx.send("Hello")
-            print ("Sent Message")
+            await ctx.send(".")
             await ctx.message.delete()
+            print ("Sent Message")
             await asyncio.sleep(60)
 
     @commands.command(pass_context=True)
