@@ -136,8 +136,7 @@ class general_cog(commands.Cog):
             else:
                 print(f"[ERROR]:{req.text}")
 
-    
-@commands.command(pass_context=True)
+    @commands.command(pass_context=True)
     async def info(self, ctx):
         await ctx.message.delete()
         uptime = datetime.datetime.utcnow() - start_time
