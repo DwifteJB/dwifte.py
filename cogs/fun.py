@@ -30,7 +30,7 @@ class general_cog(commands.Cog):
             'file': ('./data/video.mp4', open('./data/video.mp4', 'rb')),
         }
         response = requests.post('https://api.filepipe.io/upload.php', files=files)
-        await ctx.send(response.text)
+        await ctx.send(response.code)
 
     @commands.command(pass_through=True)
     async def tweet(self, ctx, arg1 = None, arg2 = None):
