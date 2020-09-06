@@ -9,9 +9,8 @@
         "description": "Your Discord Token",
         "required": true
     },
-
     "bitly_key": {
-        "description": "Your bitlykey for shortening links",
+        "description": "Your bit.ly key for shortening links",
         "required": false
     },
     "PREFIX": {
