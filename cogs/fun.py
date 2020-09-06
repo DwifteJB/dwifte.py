@@ -33,6 +33,7 @@ class general_cog(commands.Cog):
         response = requests.post('https://api.filepipe.io/upload.php', files=files)
         soup = BeautifulSoup(response.text, 'html.parser')
         row = soup.find('code')
+        await ctx.send("Video Download:")
         await ctx.send(row.get_text())
 
     @commands.command(pass_through=True)
