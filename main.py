@@ -33,19 +33,12 @@ except KeyError:
 
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command("help")
-content = requests.get("http://dwifte.eu.org/config.json")
-json = json.loads(content.content)
 
 
 # bot events
 @bot.event
 async def on_connect():
   print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n\nChangelog:\n{changelog}\n\nMade by CrafterPika and DwifteJB')
-  latestver = json['latest']
-  if 130 == latestver:
-      print("You are on the latest version!")
-  else:
-      print("WARNING: YOU ARE NOT ON THE LATEST VERSION!")
 
 #Bot Events
 @bot.event
