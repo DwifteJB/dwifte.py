@@ -46,6 +46,16 @@ class general_cog(commands.Cog):
         print ("Action Completed: say")
 
     @commands.command(pass_context=True)
+    async def tweet(ctx, username: str, *, message: str):
+        await ctx.message.delete()
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={message}") as r:
+                res = await r.json()
+                em = discord.Embed()
+                em.set_image(url=res["message"])
+                await ctx.send(embed=em)
+
+    @commands.command(pass_context=True)
     async def playing(self, ctx, arg1):
         await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=arg1))
         await ctx.message.delete()
