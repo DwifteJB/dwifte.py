@@ -117,7 +117,7 @@ class general_cog(commands.Cog):
         print ("Action Completed: purge")
 
     @commands.command(pass_context=True)
-    async def short(self, ctx, *, link):
+    async def bitly(self, ctx, *, link):
         await ctx.message.delete()
         if bitly_key == '':
             print(f"[ERROR]: Bitly API Key was not found, please set it in config.json or the Heroku Settings (get one at bit.ly)")
