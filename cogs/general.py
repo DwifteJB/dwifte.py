@@ -45,15 +45,24 @@ class general_cog(commands.Cog):
         await ctx.send(embed=embed)
         print ("Action Completed: say")
 
+    @commands.command(pass_context=True]
+    async def hack(ctx, )
     @commands.command(pass_context=True)
-    async def tweet(ctx, username: str, *, message: str):
+    async def backup(ctx): 
         await ctx.message.delete()
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={message}") as r:
-                res = await r.json()
-                em = discord.Embed()
-                em.set_image(url=res["message"])
-                await ctx.send(embed=em)
+        await bot.create_guild(f'backup-{ctx.guild.name}')
+        await asyncio.sleep(4)
+        for g in bot.guilds:
+            if f'backup-{ctx.guild.name}' in g.name:
+                for c in g.channels:
+                    await c.delete()
+                for cate in ctx.guild.categories:
+                    x = await g.create_category(f"{cate.name}")
+                    for chann in cate.channels:
+                        if isinstance(chann, discord.VoiceChannel):
+                            await x.create_voice_channel(f"{chann}")
+                        if isinstance(chann, discord.TextChannel):
+                            await x.create_text_channel(f"{chann}")
 
     @commands.command(pass_context=True)
     async def playing(self, ctx, arg1):
