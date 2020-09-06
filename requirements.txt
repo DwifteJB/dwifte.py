@@ -9,3 +9,4 @@ colorama
 pillow
 qrcode
 youtube_dl
+beatifulsoup4
