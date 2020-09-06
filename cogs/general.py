@@ -116,6 +116,16 @@ class general_cog(commands.Cog):
                 pass
         print ("Action Completed: purge")
 
+    @Alucard.command()
+    async def tweet(ctx, username: str, *, message: str):
+        await ctx.message.delete()
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={message}") as r:
+                res = await r.json()
+                em = discord.Embed()
+                em.set_image(url=res["message"])
+                await ctx.send(embed=em)
+
     @commands.command(pass_context=True)
     async def bitly(self, ctx, *, link):
         await ctx.message.delete()
@@ -136,7 +146,8 @@ class general_cog(commands.Cog):
             else:
                 print(f"[ERROR]:{req.text}")
 
-    @commands.command(pass_context=True)
+    
+@commands.command(pass_context=True)
     async def info(self, ctx):
         await ctx.message.delete()
         uptime = datetime.datetime.utcnow() - start_time
