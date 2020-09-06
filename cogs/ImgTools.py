@@ -1,4 +1,4 @@
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageFont, ImageDraw
 import PIL.ImageOps
 import os
 import urllib.request
@@ -154,6 +154,80 @@ class ImgTools_cog(commands.Cog):
         except FileNotFoundError:
         	pass
 
+    @commands.command(pass_context=True)
+    async def addtext_black(self, ctx, arg1, arg2):
+        await ctx.message.delete()
+        print('Downloading Requested file')
+        url = arg1
+        urllib.request.urlretrieve(url, './data/cached2.png')
+        try:
+            maniplulate = Image.open('./data/cached2.png')
+            draw = ImageDraw.Draw(maniplulate)
+            font = ImageFont.truetype("./data/arial.ttf", 32)
+            draw.text((0, 0),arg2,(0, 0, 0),font=font)
+            maniplulate.save('./data/maniplulated.png')
+        except NotImplementedError:
+            print("It seems like the image you are using is not supported!")
+            return False
+        except OSError:
+            print("This image is bad")
+            return False
+        except HTTPError:
+            print("And HTTP Error Occured")
+            return False
+        await ctx.send(file=File('./data/maniplulated.png'))
+        os.remove('./data/maniplulated.png')
+        os.remove('./data/cached2.png')
+
+    @commands.command(pass_context=True)
+    async def addtext_white(self, ctx, arg1, arg2):
+        await ctx.message.delete()
+        print('Downloading Requested file')
+        url = arg1
+        urllib.request.urlretrieve(url, './data/cached2.png')
+        try:
+            maniplulate = Image.open('./data/cached2.png')
+            draw = ImageDraw.Draw(maniplulate)
+            font = ImageFont.truetype("./data/arial.ttf", 32)
+            draw.text((0, 0),arg2,(255, 255, 255),font=font)
+            maniplulate.save('./data/maniplulated.png')
+        except NotImplementedError:
+            print("It seems like the image you are using is not supported!")
+            return False
+        except OSError:
+            print("This image is bad")
+            return False
+        except HTTPError:
+            print("And HTTP Error Occured")
+            return False
+        await ctx.send(file=File('./data/maniplulated.png'))
+        os.remove('./data/maniplulated.png')
+        os.remove('./data/cached2.png')
+
+    @commands.command(pass_context=True)
+    async def addtext_red(self, ctx, arg1, arg2):
+        await ctx.message.delete()
+        print('Downloading Requested file')
+        url = arg1
+        urllib.request.urlretrieve(url, './data/cached2.png')
+        try:
+            maniplulate = Image.open('./data/cached2.png')
+            draw = ImageDraw.Draw(maniplulate)
+            font = ImageFont.truetype("./data/arial.ttf", 32)
+            draw.text((0, 0),arg2,(255, 0, 0),font=font)
+            maniplulate.save('./data/maniplulated.png')
+        except NotImplementedError:
+            print("It seems like the image you are using is not supported!")
+            return False
+        except OSError:
+            print("This image is bad")
+            return False
+        except HTTPError:
+            print("And HTTP Error Occured")
+            return False
+        await ctx.send(file=File('./data/maniplulated.png'))
+        os.remove('./data/maniplulated.png')
+        os.remove('./data/cached2.png')
 
 
 def setup(bot: commands.Bot):

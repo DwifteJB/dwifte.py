@@ -1,7 +1,6 @@
 import io
 import aiohttp
 import os
-import urllib
 import urllib.request
 import sys
 import asyncio

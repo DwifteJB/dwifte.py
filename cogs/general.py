@@ -88,19 +88,6 @@ class general_cog(commands.Cog):
         uptime = datetime.datetime.utcnow() - start_time
         uptime = str(uptime).split('.')[0]
         await ctx.send(f'I have been running for: '+uptime+'')
-        
-
-    @commands.command(pass_context=True)
-    async def info(self, ctx):
-        await ctx.message.delete()
-        uptime = datetime.datetime.utcnow() - start_time
-        uptime = str(uptime).split('.')[0]
-        embed=discord.Embed(title=f"{self.bot.user.name} Info", description="Tells you info about you. Yes you.", color=random.choice(colors))
-        embed.add_field(name="Uptime", value=f''+uptime+'', inline=False)
-        embed.add_field(name="Prefix", value=f'{prefix}', inline=True)
-        embed.add_field(name="Ping", value=f'{round(self.bot.latency * 1000)}ms', inline=True)
-        embed.set_footer(text=f"Dwifte.PY | {version}")
-        await ctx.send(embed=embed)
 
     @commands.command(pass_context=True)
     async def asay(self, ctx, arg1 = None):
@@ -126,6 +113,18 @@ class general_cog(commands.Cog):
             except:
                 pass
         print ("Action Completed: purge")
+
+    @commands.command(pass_context=True)
+    async def info(self, ctx):
+        await ctx.message.delete()
+        uptime = datetime.datetime.utcnow() - start_time
+        uptime = str(uptime).split('.')[0]
+        embed=discord.Embed(title=f"{self.bot.user.name} Info", description="Tells you info about you. Yes you.", color=random.choice(colors))
+        embed.add_field(name="Uptime", value=f''+uptime+'', inline=False)
+        embed.add_field(name="Prefix", value=f'{prefix}', inline=True)
+        embed.add_field(name="Ping", value=f'{round(self.bot.latency * 1000)}ms', inline=True)
+        embed.set_footer(text=f"Dwifte.PY | {version}")
+        await ctx.send(embed=embed)
 
 def setup(bot: commands.Bot):
     bot.add_cog(general_cog(bot))
