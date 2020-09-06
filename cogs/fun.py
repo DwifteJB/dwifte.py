@@ -1,3 +1,5 @@
+import pytube
+from pytube import Youtube
 import aiohttp
 import discord
 import random
@@ -13,6 +15,14 @@ class general_cog(commands.Cog):
     async def eigth_ball(self, ctx, arg1):
         eigth_ball_embed=discord.Embed(color=random.choice(colors), description=random.choice(answers))
         await ctx.send(embed=eigth_ball_embed)
+
+    @commands.command(pass_through=True)
+    async def pytube(self, ctx, url = None)
+    if url is None:
+        ctx.send("Link Required.")
+    YouTube(f'{url}').streams.first().download(filename='video')
+    await ctx.send(file=File('./data/video.mp4'))
+    os.remove('./data/video.mp4')
 
     @commands.command(pass_through=True)
     async def tweet(self, ctx, arg1 = None, arg2 = None):
