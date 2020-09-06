@@ -19,7 +19,7 @@ class general_cog(commands.Cog):
         await ctx.send(embed=eigth_ball_embed)
 
     @commands.command(pass_context=True)
-    async def sock5(self, ctx, arg1):
+    async def sock5(self, ctx):
     r = requests.post('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=99999999')
     await ctx.send(r.text)
     
