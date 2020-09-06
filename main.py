@@ -38,6 +38,15 @@ bot.remove_command("help")
 @bot.event
 async def on_connect():
   print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n\nChangelog:\n{changelog}\n\nMade by CrafterPika and DwifteJB')
+  json_url = urlopen(http://dwifte.eu.org/config.json)
+  data = json.loads(json_url.read())
+  latestver = data["latest"]
+  if 120 < latestver = 130:
+      print("You are on the latest version!")
+  else:
+      print("WARNING: YOU ARE NOT ON THE LATEST VERSION!")
+  if 120 < latestver < 130:
+      print("You are not on the latest version.")
 
 #Bot Events
 @bot.event
@@ -118,4 +127,4 @@ bot.load_extension("cogs.random")
 bot.load_extension("cogs.ImgTools")
 
 bot.run(token, bot=False) 
-# speakl thanks to crafterpika for the help ;)
+# speakl thanks to crafterpika for the help ;) 
