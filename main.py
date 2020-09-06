@@ -49,7 +49,10 @@ async def on_connect():
       print ("Dwifte.PY is up to date!")
   else:
       print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
-      os._exit(1)
+      try:
+          sys.exit()
+      except:
+          print("Quitting bot due to outdated version")
 
 #Bot Events
 @bot.event
