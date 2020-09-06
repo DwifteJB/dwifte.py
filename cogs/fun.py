@@ -35,6 +35,7 @@ class general_cog(commands.Cog):
         row = soup.find('code')
         await ctx.send("Video Download:")
         await ctx.send(row.get_text())
+        os.remove('./data/video.mp4')
 
     @commands.command(pass_through=True)
     async def tweet(self, ctx, arg1 = None, arg2 = None):
