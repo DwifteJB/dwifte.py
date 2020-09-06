@@ -49,7 +49,7 @@ async def on_connect():
       print ("Dwifte.PY is up to date!")
   else:
       print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
-      sys.exit()
+      os._exit(1)
 
 #Bot Events
 @bot.event
