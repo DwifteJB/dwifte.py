@@ -7,3 +7,4 @@ asyncio
 datetime
 colorama
 pillow
+qrcode
