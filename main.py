@@ -19,7 +19,13 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from config import version, changelog
 start_time = datetime.datetime.utcnow()
- 
+
+url = 'http://www.crafterpika.ml/api/v1/dwifte_py.json'
+req = urllib.request.Request(url)
+r = urllib.request.urlopen(req).read()
+cont = json.loads(r.decode('utf-8'))
+counter = 0
+
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
@@ -37,7 +43,17 @@ bot.remove_command("help")
 # bot events
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n\nChangelog:\n{changelog}\n\nMade by CrafterPika and DwifteJB')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\nMade by CrafterPika and DwifteJB')
+  latestver = cont['latest']
+  if latestver == version:
+      print ("Dwifte.PY is up to date!")
+  else:
+      print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
+      try:
+          sys.exit()
+      except:
+          print("Quitting bot due to oudated version")
+          os._exit(1)
 
 #Bot Events
 @bot.event
@@ -117,5 +133,5 @@ bot.load_extension("cogs.spam")
 bot.load_extension("cogs.random")
 bot.load_extension("cogs.ImgTools")
 
-bot.run(token, bot=False) 
+bot.run(token, bot=False)
 # speakl thanks to crafterpika for the help ;)
