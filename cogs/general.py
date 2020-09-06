@@ -117,7 +117,7 @@ class general_cog(commands.Cog):
         print ("Action Completed: purge")
 
     @commands.command(pass_context=True)
-    async def tweet(ctx, username: str, *, message: str):
+    async def tweet(self, ctx, username: str, *, message: str):
         await ctx.message.delete()
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={message}") as r:
