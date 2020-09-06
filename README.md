@@ -7,7 +7,7 @@
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 <a href="https://github.com/DwifteJB/dwifte.py/archive/master.zip">
-  <img src="https://i.ibb.co/ZHKS2K6/effects-tried-0-photos-added-0-origin-unknown-total-effects-actions-0-remix-data-add-photo-directory.jpg" height="45" width="175" alt="Download">
+  <img src="https://i.ibb.co/ZHKS2K6/effects-tried-0-photos-added-0-origin-unknown-total-effects-actions-0-remix-data-add-photo-directory.jpg" height="45" width="200" alt="Download">
 </a>
 <br>
 <br>
