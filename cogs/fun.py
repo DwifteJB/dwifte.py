@@ -20,12 +20,11 @@ class general_cog(commands.Cog):
             arg1 = "CrafterPika"
         if arg2 is None:
             arg2 = "I am amazing, trust me."
+        await ctx.message.delete()
         async with aiohttp.ClientSession() as cs:
             async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={arg1}&text={arg2}") as r:
                 res = await r.json()
-                em = discord.Embed()
-                em.set_image(url=res["message"])
-                await ctx.send(embed=em)
+                await ctx.send(res["message"])
 
     @commands.command(pass_context=True)
     async def hug(self, ctx, user:discord.Member):
