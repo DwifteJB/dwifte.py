@@ -116,7 +116,7 @@ class general_cog(commands.Cog):
                 pass
         print ("Action Completed: purge")
 
-    @Alucard.command()
+    @commands.command(pass_context=True)
     async def tweet(ctx, username: str, *, message: str):
         await ctx.message.delete()
         async with aiohttp.ClientSession() as cs:
