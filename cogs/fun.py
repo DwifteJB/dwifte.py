@@ -17,7 +17,7 @@ class general_cog(commands.Cog):
     async def hug(self, ctx, user:discord.Member):
         await ctx.message.delete()
         embed=discord.Embed(title=f"{self.bot.user.name} hugged {user.name}", description=random.choice(hug_description), color=random.choice(colors))
-       embed.set_image(url=random.choice(hug))
+        embed.set_image(url=random.choice(hug))
         await ctx.send(embed=embed)
 
     @commands.command(pass_context=True)
