@@ -15,10 +15,12 @@ start_time = datetime.datetime.utcnow()
 
 try:
     prefix = os.environ['PREFIX']
+    bitly_key = os.environ['bitly_key']
     heroku = True
 except KeyError:
     heroku = False
     config = json.load(open('config.json', 'r'))
+    bitly_key = config["bitly_key"]
     prefix = config["prefix"]
 
 class general_cog(commands.Cog):
