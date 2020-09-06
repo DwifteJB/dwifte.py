@@ -45,8 +45,6 @@ class general_cog(commands.Cog):
         await ctx.send(embed=embed)
         print ("Action Completed: say")
 
-    @commands.command(pass_context=True]
-    async def hack(ctx, )
     @commands.command(pass_context=True)
     async def backup(ctx): 
         await ctx.message.delete()
