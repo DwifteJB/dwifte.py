@@ -137,7 +137,7 @@ class general_cog(commands.Cog):
                 print(f"[ERROR]:{req.text}")
 
     @commands.command(pass_context=True)
-    async def readall(ctx):
+    async def readall(self, ctx):
         await ctx.message.delete()
         for guild in bot.guilds:
             await guild.ack()
