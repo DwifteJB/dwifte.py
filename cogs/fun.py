@@ -31,14 +31,14 @@ class general_cog(commands.Cog):
         
     @commands.command(pass_context=True)
     async def funfact(self, ctx)
-    await ctx.message.delete()
-    await ctx.send("This was coded on the bus!")
+        await ctx.message.delete()
+        await ctx.send("This was coded on the bus!")
     
     @commands.command(pass_context=True)
     async def blank(self, ctx)
-    await ctx.message.delete()
-    await ctx.send(" ** ** ")
-    print ("Sent blank message ")
+        await ctx.message.delete()
+        await ctx.send(" ** ** ")
+        print ("Sent blank message ")
     
     @commands.command(pass_context=True)
     async def sock5(self, ctx, arg1 = None):
