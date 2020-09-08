@@ -7,7 +7,7 @@ import random
 import youtube_dl
 from discord.ext import commands
 from discord import File, Message
-from config import colors, answers, kiss, kiss_description, hug, hug_description, sock5proxy, funfact
+from config import colors, answers, kiss, kiss_description, hug, hug_description, funfact
 
 class general_cog(commands.Cog):
     def __init__(self, bot):
