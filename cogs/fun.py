@@ -7,7 +7,7 @@ import random
 import youtube_dl
 from discord.ext import commands
 from discord import File, Message
-from config import colors, answers, kiss, kiss_description, hug, hug_description, sock5proxy
+from config import colors, answers, kiss, kiss_description, hug, hug_description, sock5proxy, funfact
 
 class general_cog(commands.Cog):
     def __init__(self, bot):
@@ -32,7 +32,7 @@ class general_cog(commands.Cog):
     @commands.command(pass_context=True)
     async def funfact(self, ctx):
         await ctx.message.delete()
-        await ctx.send("This was coded on the bus!")
+        await ctx.send(random.choice(funfact))
     
     @commands.command(pass_context=True)
     async def blank(self, ctx):
@@ -54,7 +54,6 @@ class general_cog(commands.Cog):
         await ctx.message.delete()
         ydl_opts = {
             'outtmpl': os.path.join('./data/video.mp4'),
-            'proxy': 'socks5://random.choice(sock5proxy)',
             }
 
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
