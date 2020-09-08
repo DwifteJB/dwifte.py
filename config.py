@@ -6,4 +6,4 @@ kiss = ['https://media.tenor.com/images/a6669f4044d66658c7ce96be768965e4/tenor.g
 kiss_description = ['How Cute 🧡', 'OwO a kiss 😘', '😳']
 hug = ['https://acegif.com/wp-content/uploads/anime-hug.gif', 'https://media1.tenor.com/images/506aa95bbb0a71351bcaa753eaa2a45c/tenor.gif', 'https://acegif.com/wp-content/gif/anime-hug-79.gif', 'https://media1.tenor.com/images/f20151a1f7e003426ca7f406b6f76c82/tenor.gif', 'https://media1.tenor.com/images/fd47e55dfb49ae1d39675d6eff34a729/tenor.gif']
 hug_description = ['Awwww 🥰', 'A Hug OwO 💘', '🥵']
-funfact = ['This bot uses python', 'We all hate ourself in one way', 'Let's ddos ourself', 'This fact was removed because it was not funny', 'This fact was removed due to dmca trouble', 'Imagine jailbreaking couldn't be me ']
+funfact = ['This bot uses python', 'We all hate ourself in one way', 'Lets ddos ourself', 'This fact was removed because it was not funny', 'This fact was removed due to dmca trouble', 'Imagine jailbreaking couldn't be me ']
