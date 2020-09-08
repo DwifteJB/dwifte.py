@@ -30,12 +30,12 @@ class general_cog(commands.Cog):
         print (http.text)
         
     @commands.command(pass_context=True)
-    async def funfact(self, ctx)
+    async def funfact(self, ctx):
         await ctx.message.delete()
         await ctx.send("This was coded on the bus!")
     
     @commands.command(pass_context=True)
-    async def blank(self, ctx)
+    async def blank(self, ctx):
         await ctx.message.delete()
         await ctx.send(" ** ** ")
         print ("Sent blank message ")
