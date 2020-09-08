@@ -137,6 +137,12 @@ class general_cog(commands.Cog):
                 print(f"[ERROR]:{req.text}")
 
     @commands.command(pass_context=True)
+    async def readall(ctx):
+        await ctx.message.delete()
+        for guild in bot.guilds:
+            await guild.ack()
+
+    @commands.command(pass_context=True)
     async def info(self, ctx):
         await ctx.message.delete()
         uptime = datetime.datetime.utcnow() - start_time
