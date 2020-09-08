@@ -1,3 +1,4 @@
+
 import aiohttp
 import os
 import requests
@@ -19,8 +20,34 @@ class general_cog(commands.Cog):
         await ctx.send(embed=eigth_ball_embed)
 
     @commands.command(pass_context=True)
-    async def sock5(self, ctx):
+    async def http(self, ctx, arg1 = None):
+        if arg1 is None:
+            arg1 = "600"
+        await ctx.message.delete()
+        http = requests.post(f'https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout={arg1}')
+        await ctx.send(f"HTTP Proxies, timeout = {arg1}")
+        await ctx.send(http.text)
+        print ("Sent http proxies,")
+        print (http.text)
+        
+    @commands.command(pass_context=True)
+    async def funfact(self, ctx)
+    await ctx.message.delete()
+    await ctx.send("This was coded on the bus!")
+    
+    @commands.command(pass_context=True)
+    async def blank(self, ctx)
+    await ctx.message.delete()
+    await ctx.send(" ** ** ")
+    print ("Sent blank message ")
+    
+    @commands.command(pass_context=True)
+    async def sock5(self, ctx, arg1 = None):
+        if arg1 is None:
+            arg1 = "600"
+        await ctx.message.delete()
         r = requests.post('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=600')
+        await ctx.send(f"Sock5 Proxies, timeout = {arg1}")
         await ctx.send(r.text)
     
     @commands.command(pass_context=True)
