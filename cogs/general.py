@@ -139,7 +139,7 @@ class general_cog(commands.Cog):
     @commands.command(pass_context=True)
     async def readall(self, ctx):
         await ctx.message.delete()
-        for guild in bot.guilds:
+        for guild in self.bot.guilds:
             await guild.ack()
 
     @commands.command(pass_context=True)
