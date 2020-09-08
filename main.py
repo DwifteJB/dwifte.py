@@ -44,16 +44,16 @@ bot.remove_command("help")
 @bot.event
 async def on_connect():
   print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\nMade by CrafterPika and DwifteJB')
-  latestver = cont['latest']
-  if latestver == version:
-      print ("Dwifte.PY is up to date!")
-  else:
-      print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
-      try:
-          sys.exit()
-      except:
-          print("Quitting bot due to Outdated version")
-          os._exit(1)
+#  latestver = cont['latest']
+#  if latestver == version:
+#      print ("Dwifte.PY is up to date!")
+#  else:
+#      print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
+#      try:
+#          sys.exit()
+#      except:
+#          print("Quitting bot due to Outdated version, seeing this randomly? Cache may effect this process, wait a while and try again.")
+#          os._exit(1)
 
 #Bot Events
 @bot.event
