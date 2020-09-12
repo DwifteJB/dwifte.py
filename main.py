@@ -20,7 +20,7 @@ from discord.ext.commands import Bot
 from config import version, changelog
 start_time = datetime.datetime.utcnow()
 
-url = 'http://www.crafterpika.ml/api/v1/dwifte_py.json'
+url = 'https://raw.githubusercontent.com/DwifteJB/dwifte.py/master/update.json'
 req = urllib.request.Request(url)
 r = urllib.request.urlopen(req).read()
 cont = json.loads(r.decode('utf-8'))
