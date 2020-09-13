@@ -20,7 +20,7 @@ from discord.ext.commands import Bot
 from config import version, changelog
 start_time = datetime.datetime.utcnow()
 
-url = 'http://www.crafterpika.ml/api/v1/dwifte_py.json'
+url = 'https://raw.githubusercontent.com/DwifteJB/dwifte.py/master/update.json'
 req = urllib.request.Request(url)
 r = urllib.request.urlopen(req).read()
 cont = json.loads(r.decode('utf-8'))
@@ -44,16 +44,16 @@ bot.remove_command("help")
 @bot.event
 async def on_connect():
   print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\nMade by CrafterPika and DwifteJB')
-#  latestver = cont['latest']
-#  if latestver == version:
-#      print ("Dwifte.PY is up to date!")
-#  else:
-#      print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
-#      try:
-#          sys.exit()
-#      except:
-#          print("Quitting bot due to Outdated version, seeing this randomly? Cache may effect this process, wait a while and try again.")
-#          os._exit(1)
+  latestver = cont['latest']
+  if latestver == version:
+      print ("Dwifte.PY is up to date!")
+  else:
+      print ("Please update from the github page (github.com/DwifteJB/dwifte.py)"
+      try:
+          sys.exit()
+      except:
+          print("Quitting bot due to Outdated version, seeing this randomly? Cache may effect this process, wait a while and try again.")
+          os._exit(1)
 
 #Bot Events
 @bot.event
