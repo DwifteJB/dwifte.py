@@ -14,8 +14,8 @@ class general_cog(commands.Cog):
         self.bot = bot
 
     @commands.command(pass_context=True, name="8ball")
-    async def eigth_ball(self, ctx, arg1):
-        eigth_ball_embed=discord.Embed(color=random.choice(colors), description=random.choice(answers))
+    async def eigth_ball(self, ctx, *, arg1:str):
+        eigth_ball_embed=discord.Embed(title=f"{arg1}", color=random.choice(colors), description=random.choice(answers))
         await ctx.send(embed=eigth_ball_embed)
 
     @commands.command(pass_context=True)
