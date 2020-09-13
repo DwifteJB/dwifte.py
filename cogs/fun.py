@@ -16,6 +16,7 @@ class general_cog(commands.Cog):
     @commands.command(pass_context=True, name="8ball")
     async def eigth_ball(self, ctx, *, arg1:str):
         eigth_ball_embed=discord.Embed(title=f"{arg1}", color=random.choice(colors), description=random.choice(answers))
+        eigth_ball_embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/739435448203608134/754733857902952528/8-Ball.png")
         await ctx.send(embed=eigth_ball_embed)
 
     @commands.command(pass_context=True)
@@ -28,18 +29,18 @@ class general_cog(commands.Cog):
         await ctx.send(http.text)
         print ("Sent http proxies,")
         print (http.text)
-        
+
     @commands.command(pass_context=True)
     async def funfact(self, ctx):
         await ctx.message.delete()
         await ctx.send(random.choice(funfact))
-    
+
     @commands.command(pass_context=True)
     async def blank(self, ctx):
         await ctx.message.delete()
         await ctx.send(" ** ** ")
         print ("Sent blank message ")
-    
+
     @commands.command(pass_context=True)
     async def sock5(self, ctx, arg1 = None):
         if arg1 is None:
@@ -48,7 +49,7 @@ class general_cog(commands.Cog):
         r = requests.post('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=600')
         await ctx.send(f"Sock5 Proxies, timeout = {arg1}")
         await ctx.send(r.text)
-    
+
     @commands.command(pass_context=True)
     async def youtube_dl(self, ctx, arg1):
         await ctx.message.delete()
