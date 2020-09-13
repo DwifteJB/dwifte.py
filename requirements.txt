@@ -8,3 +8,5 @@ datetime
 colorama
 pillow
 qrcode
+youtube_dl
+beautifulsoup4

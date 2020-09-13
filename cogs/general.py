@@ -44,8 +44,9 @@ class general_cog(commands.Cog):
         embed.set_footer(text=arg3)
         await ctx.send(embed=embed)
         print ("Action Completed: say")
+
     @commands.command(pass_context=True)
-    async def playing(self, ctx, arg1):
+    async def playing(self, ctx, *, arg1:str):
         await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=arg1))
         await ctx.message.delete()
 
@@ -134,6 +135,12 @@ class general_cog(commands.Cog):
                 print(f"[ERROR]:{e}")
             else:
                 print(f"[ERROR]:{req.text}")
+
+    @commands.command(pass_context=True)
+    async def readall(self, ctx):
+        await ctx.message.delete()
+        for guild in self.bot.guilds:
+            await guild.ack()
 
     @commands.command(pass_context=True)
     async def info(self, ctx):
