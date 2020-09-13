@@ -100,7 +100,7 @@ async def on_message(message):
 			headers = {
       				'Content-Type': 'application/json',
       				'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.306 Chrome/78.0.3904.130 Electron/7.1.11 Safari/537.36',
-      				'Authorization': config["token"]
+      				'Authorization': token
     			}
 
 			session = requests.Session()
