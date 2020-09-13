@@ -50,17 +50,17 @@ class general_cog(commands.Cog):
         await ctx.message.delete()
 
     @commands.command(pass_context=True)
-    async def watching(self, ctx, arg1):
+    async def watching(self, ctx, *, arg1:str):
         await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=arg1))
         await ctx.message.delete()
 
     @commands.command(pass_context=True)
-    async def listening(self, ctx, arg1):
+    async def listening(self, ctx, *, arg1:str):
         await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=arg1))
         await ctx.message.delete()
 
     @commands.command(pass_context=True)
-    async def streaming(self, ctx, arg1):
+    async def streaming(self, ctx, *, arg1:str):
         await self.bot.change_presence(activity = discord.Streaming(name = arg1, url = "https://twitch.tv/pornhub"))
         await ctx.message.delete()
 
@@ -91,7 +91,7 @@ class general_cog(commands.Cog):
         await ctx.send(f'I have been running for: '+uptime+'')
 
     @commands.command(pass_context=True)
-    async def asay(self, ctx, arg1 = None):
+    async def asay(self, ctx, *, arg1:str):
         if arg1 is None:
             arg1 = "Hello World"
         ascii_banner = pyfiglet.figlet_format(arg1)
