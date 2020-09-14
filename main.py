@@ -126,12 +126,16 @@ async def on_message(message):
 	await bot.process_commands(message)
 
 #cogs
-bot.load_extension("cogs.general")
-bot.load_extension("cogs.help")
-bot.load_extension("cogs.fun")
-bot.load_extension("cogs.spam")
-bot.load_extension("cogs.random")
-bot.load_extension("cogs.ImgTools")
+try:
+    bot.load_extension("cogs.general")
+    bot.load_extension("cogs.help")
+    bot.load_extension("cogs.fun")
+    bot.load_extension("cogs.spam")
+    bot.load_extension("cogs.random")
+    bot.load_extension("cogs.ImgTools")
+except:
+    print("A Cog failed to load :/")
+    pass
 
 bot.run(token, bot=False)
 # speakl thanks to crafterpika for the help ;)

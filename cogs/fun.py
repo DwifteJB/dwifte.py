@@ -5,9 +5,18 @@ from bs4 import BeautifulSoup
 import discord
 import random
 import youtube_dl
+import json
 from discord.ext import commands
 from discord import File, Message
 from config import colors, answers, kiss, kiss_description, hug, hug_description, funfact
+
+try:
+    prefix = os.environ['PREFIX']
+    heroku = True
+except KeyError:
+    heroku = False
+    config = json.load(open('config.json', 'r'))
+    prefix = config["prefix"]
 
 class general_cog(commands.Cog):
     def __init__(self, bot):
@@ -67,6 +76,15 @@ class general_cog(commands.Cog):
         row = soup.find('code')
         await ctx.send("Video Download:")
         await ctx.send(row.get_text())
+        try:
+            os.remove('./data/video.mp4')
+        except:
+            print("failed to delete the .mp4 trying again")
+            await ctx.send(f"{prefix}delete_mp4")
+
+    @commands.command(pass_context=True)
+    async def delete_mp4(self, ctx):
+        await ctx.message.delete()
         os.remove('./data/video.mp4')
 
     @commands.command(pass_through=True)
