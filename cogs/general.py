@@ -116,6 +116,11 @@ class general_cog(commands.Cog):
                 pass
         print ("Action Completed: purge")
 
+
+    @commands.command(pass_context=True)
+    async def tinyurl(self, ctx, *, link):
+        url = f"http://tinyurl.com/api-create.php?url={link}"
+        await ctx.send(url)
     @commands.command(pass_context=True)
     async def bitly(self, ctx, *, link):
         await ctx.message.delete()
@@ -128,9 +133,7 @@ class general_cog(commands.Cog):
                         r = await req.read()
                         r = json.loads(r) 
                 new = r['data']['url']
-                em = discord.Embed()
-                em.add_field(name='Shortened link', value=new, inline=False)
-                await ctx.send(embed=em)
+                await ctx.send(new)
             except Exception as e:
                 print(f"[ERROR]:{e}")
             else:
