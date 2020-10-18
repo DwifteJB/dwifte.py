@@ -1,4 +1,4 @@
 {
-  "latest": "1.5.0",
-  "features" : "Added proxy scraping to .txt file"
+  "latest": "1.5.1",
+  "features" : "Added proxy scraping\nImproved Start Console Text"
 }
