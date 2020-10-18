@@ -58,6 +58,8 @@ class general_cog(commands.Cog):
         r = requests.post('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=600')
         f = open('data/sock5.txt', 'w')
         f.write(r.text)
+        f.close()
+        f = open('data/sock5.txt', 'r')
         socks = discord.File(f)
         await ctx.send(socks)
 
