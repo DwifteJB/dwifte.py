@@ -43,7 +43,7 @@ bot.remove_command("help")
 # bot events
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n\nChangelog:\n{changelog}\n\nMade by CrafterPika and DwifteJB')
+  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n\nMade by CrafterPika and DwifteJB')
   latestver = cont['latest']
   if latestver == version:
       print ("Dwifte.PY is up to date!")
