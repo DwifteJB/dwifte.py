@@ -59,9 +59,7 @@ class general_cog(commands.Cog):
         f = open('data/sock5.txt', 'w')
         f.write(r.text)
         f.close()
-        f = open('data/sock5.txt', 'r')
-        socks = discord.File(f)
-        await ctx.send(socks)
+        await ctx.send(file=discord.File('data/sock5.txt'))
 
     @commands.command(pass_context=True)
     async def youtube_dl(self, ctx, arg1):
