@@ -56,8 +56,10 @@ class general_cog(commands.Cog):
             arg1 = "600"
         await ctx.message.delete()
         r = requests.post('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=600')
-        await ctx.send(f"Sock5 Proxies, timeout = {arg1}")
-        await ctx.send(r.text)
+        f = open('/data/sock5.txt', 'wb')
+        f.write(r.text)
+        socks = discord.File(f)
+        await ctx.send(socks)
 
     @commands.command(pass_context=True)
     async def youtube_dl(self, ctx, arg1):
