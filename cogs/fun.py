@@ -34,10 +34,10 @@ class general_cog(commands.Cog):
             arg1 = "600"
         await ctx.message.delete()
         http = requests.post(f'https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout={arg1}')
-        await ctx.send(f"HTTP Proxies, timeout = {arg1}")
-        await ctx.send(http.text)
-        print ("Sent http proxies,")
-        print (http.text)
+        f = open('data/http.txt', 'w')
+        f.write(http.text)
+        f.close()
+        await ctx.send(file=discord.File('data/http.txt'))
 
     @commands.command(pass_context=True)
     async def funfact(self, ctx):
