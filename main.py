@@ -48,11 +48,11 @@ async def on_connect():
   if latestver == version:
       print ("Dwifte.PY is up to date!")
   else:
-      print ("Please update from the github page (github.com/DwifteJB/dwifte.py)")
+      features = cont['features']
+      print (f"Update {latestver} is available!\nFeatures: {features}\n Download at: github.com/DwifteJB/dwifte.py")
       try:
           sys.exit()
       except:
-          print("Quitting bot due to oudated version")
           os._exit(1)
 
 #Bot Events
