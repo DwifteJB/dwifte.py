@@ -46,7 +46,7 @@ async def on_connect():
   print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\n\nMade by CrafterPika and DwifteJB')
   latestver = cont['latest']
   if latestver == version:
-      print ("Dwifte.PY is up to date!")
+      pass
   else:
       features = cont['features']
       print (f"Update {latestver} is available!\nFeatures: {features}\n Download at: github.com/DwifteJB/dwifte.py")
