@@ -1,4 +1,4 @@
 {
-  "latest": "1.5.1",
-  "features" : "Added proxy scraping\nImproved Start Console Text"
+  "latest": "1.6",
+  "features" : "intruducing dwifte_updater\nThis new addon will manage future bot updates being updated automatically\nThis will make keeping this bot more user friendly then ever."
 }

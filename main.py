@@ -13,6 +13,10 @@ import re
 import requests
 import aiohttp
 import io
+import wget
+import os
+import shutil
+import zipfile
 from colorama import Fore
 from discord import File, Message
 from discord.ext import commands
@@ -50,9 +54,95 @@ async def on_connect():
   else:
       features = cont['features']
       print (f"Update {latestver} is available!\nFeatures: {features}\n Download at: github.com/DwifteJB/dwifte.py")
+      print("Launching Autoupdater")
       try:
-          sys.exit()
+          print("Dwifte.py Autoupdater 0.1a!")
+          print("Grabbing latest zip from GH")
+          wget.download("https://github.com/DwifteJB/dwifte.py/archive/master.zip", "./update.zip")
+          print("Done")
+          print("Removing old files")
+          try:
+              shutil.rmtree("cogs")
+          except:
+              pass
+
+          try:
+              shutil.rmtree("data")
+          except:
+              pass
+
+          try:
+              os.remove(".gitignore")
+          except:
+              pass
+
+          try:
+              os.remove("clear_heroku_files.sh")
+          except:
+              pass
+
+          try:
+              os.remove("app.json")
+          except:
+              pass
+
+          try:
+              os.remove("config.py")
+          except:
+              pass
+
+          try:
+              os.remove("main.py")
+          except:
+              pass
+
+          try:
+              os.remove("Procfile")
+          except:
+              pass
+
+          try:
+              os.remove("README.md")
+          except:
+              pass
+
+          try:
+              os.remove("requirements.txt")
+          except:
+              pass
+
+          try:
+              os.remove("update.json")
+          except:
+              pass
+          print("Done")
+
+          print("Updating files")
+          with zipfile.ZipFile("update.zip", 'r') as zip_ref:
+	          zip_ref.extractall("")
+
+          main = os.getcwd()
+          shutil.move("dwifte.py-master/cogs", f"{main}")
+          shutil.move("dwifte.py-master/data", f"{main}")
+          shutil.move("dwifte.py-master/config.py", f"{main}")
+          shutil.move("dwifte.py-master/main.py", f"{main}")
+          shutil.move("dwifte.py-master/app.json", f"{main}")
+          shutil.move("dwifte.py-master/Procfile", f"{main}")
+          shutil.move("dwifte.py-master/requirements.txt", f"{main}")
+          print("Done!")
+
+          print("Cleaning up")
+          shutil.rmtree("dwifte.py-master")
+          os.remove("update.zip")
+          print("Done!\nPlease restart the bot!")
+
+          print("Cleaning up")
+          shutil.rmtree("dwifte.py-master")
+          os.remove("update.zip")
+          print("Done!\nPlease restart the bot!")
+          os._exit(1)
       except:
+          print("Update failed!")
           os._exit(1)
 
 #Bot Events
