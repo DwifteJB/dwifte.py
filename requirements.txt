@@ -10,3 +10,4 @@ qrcode
 youtube_dl
 beautifulsoup4
 requests
+wget
