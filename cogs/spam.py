@@ -70,7 +70,9 @@ class spam_cog(commands.Cog):
     @commands.command(pass_context=True)
     async def mall(self, ctx, *, message):
         await ctx.message.delete()
-        for user in list(ctx.guild.members):
+        count = len(ctx.guild.members)
+        print(f" attempting to message {count} users.")
+        for user in ctx.guild.members:
             try:
                 await user.send(message)
                 print(f"{user.name} has recieved the message.")
