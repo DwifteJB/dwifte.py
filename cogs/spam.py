@@ -48,7 +48,7 @@ class spam_cog(commands.Cog):
             await asyncio.sleep(60)
 
     @commands.command(pass_context=True)
-    async def spam(self, ctx, arg1):
+    async def spam(self, ctx, *, arg1):
         await ctx.message.delete()
         print ("Action Completed: spam")
         for i in range(9999):
