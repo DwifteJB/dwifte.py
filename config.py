@@ -1,4 +1,4 @@
-version = "1.6"
+version = "1.6.1"
 changelog ="-Uses now cogs\n-Added Nitro Sniper\n-New Commands POG\n-Now supports heroku/non-heroku"
 colors = [0x00f5b8, 0xe22400, 0x477015, 0xe9cb0c, 0x900ce9, 0x0cc8e9, 0x31e90c, 0x850ce9, 0x0c59e9, 0x02294b, 0x105035, 0x52e010, 0xfbff00, 0x0088ff, 0xff6600]
 answers = ['🎱 | Yes', '🎱 | No', '🎱 | Maybe', '🎱 | Try again later']
