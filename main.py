@@ -5,6 +5,7 @@ import os
 import os.path
 import zipfile
 import shutil
+import threading
 
 #Tkinter
 from tkinter import ttk, Button, Label, Entry, Tk, Menu, filedialog, messagebox
@@ -59,3 +60,63 @@ if os.path.exists(f"{os.getcwd()}/config_back_up.json"):
     shutil.move(f"{os.getcwd()}/config_back_up.json", f"./dwifte_py/config.json")
 else:
     pass
+
+def token_save():
+    with open("./dwifte_py/config.json") as f:
+        config = json.load(f)
+    token_input = token.get()
+    config["token"] = f"{token_input}"
+    with open(f'./dwifte_py/config.json', 'w') as f:
+        json.dump(config, f, indent=4)
+
+def prefix_save():
+    with open("./dwifte_py/config.json") as f:
+        config = json.load(f)
+    prefix_input = prefix.get()
+    config["prefix"] = f"{prefix_input}"
+    with open(f'./dwifte_py/config.json', 'w') as f:
+        json.dump(config, f, indent=4)
+
+def run_dwpy():
+    og = os.getcwd()
+    os.chdir(f"{os.getcwd()}/dwifte_py")
+    os.system(f"{og}/runtime/3.9.0/python.exe main.py")
+
+def run():
+    thread1 = threading.Thread(target=run_dwpy)
+    thread1.start()
+
+main = Tk()
+main.title("Dwifte.PY Launcher (Beta)")
+main.geometry("500x490")
+
+title = Label(main, text="Dwifte.PY Launcher (Beta)")
+title.pack()
+empty = Label(main)
+empty.pack()
+empty1 = Label(main)
+empty1.pack()
+
+token1 = Label(main, text="Token:")
+token1.pack()
+token = ttk.Entry(main)
+token.pack()
+save_token = ttk.Button(main, text="Save to Configuration", command=token_save)
+save_token.pack()
+empty2 = Label(main)
+empty2.pack()
+empty3 = Label(main)
+empty3.pack()
+prefix1 = Label(main, text="Prefix:")
+prefix1.pack()
+prefix = ttk.Entry(main)
+prefix.pack()
+save_prefix = ttk.Button(main, text="Save to Configuration", command=prefix_save)
+save_prefix.pack()
+empty4 = Label(main)
+empty4.pack()
+run = ttk.Button(main, text="Run Dwifte.py", command=run)
+run.pack()
+
+
+main.mainloop()
