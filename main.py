@@ -24,11 +24,8 @@ from discord.ext.commands import Bot
 from config import version, changelog
 start_time = datetime.datetime.utcnow()
 
-url = 'https://api.crafterpika.ml/v1/dwifte.php'
-req = urllib.request.Request(url)
-r = urllib.request.urlopen(req).read()
-cont = json.loads(r.decode('utf-8'))
-counter = 0
+req = requests.get('https://api.crafterpika.ml/v1/dwifte.php')
+cont = req.json()
 
 try:
     prefix = os.environ['PREFIX']
