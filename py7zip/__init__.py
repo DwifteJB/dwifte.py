@@ -72,4 +72,4 @@ class sfx():
     def creat(self, folder, name):
         module_path = os.path.dirname(__file__)
         cli7z = f"{module_path}/bin/7z.exe"
-        subprocess.run(shlex.split(f'"{cli7z}" a -t7z -mx5 -sfx "{name}.exe" "{os.getcwd()}/{folder}/*" -mx=9 -y'), shell=True)
+        subprocess.run(shlex.split(f'"{cli7z}" a -t7z -mx5 -sfx "{name}.exe" "{os.getcwd()}/{folder}/*" -mx=9 -y'), shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
