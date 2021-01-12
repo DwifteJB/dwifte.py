@@ -41,8 +41,9 @@ class general_cog(commands.Cog):
 
     @commands.command(pass_context=True)
     async def funfact(self, ctx):
-        await ctx.message.delete()
-        await ctx.send(random.choice(funfact))
+        getfact= requests.get('https://useless-facts.sameerkumar.website/api').json()
+        fact = getfact["data"]
+        await ctx.send(fact)
 
     @commands.command(pass_context=True)
     async def blank(self, ctx):
