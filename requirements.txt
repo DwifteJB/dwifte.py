@@ -3,6 +3,7 @@ websockets
 aiohttp
 pyfiglet
 asyncio
+pyjokes
 datetime
 colorama
 pillow
