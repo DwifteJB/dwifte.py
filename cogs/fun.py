@@ -41,7 +41,7 @@ class general_cog(commands.Cog):
 
     @commands.command(pass_context=True)
     async def fact(self, ctx):
-        await ctx.delete()
+        await ctx.message,delete()
         getfact= requests.get('https://useless-facts.sameerkumar.website/api').json()
         fact = getfact["data"]
         await ctx.send(fact)
