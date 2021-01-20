@@ -8,6 +8,7 @@ class Jokes(commands.Cog):
 
     @commands.command()  
     async def joke(self, ctx):  
+        await ctx.message.delete()
         await ctx.send(pj.get_joke())  
 
 
