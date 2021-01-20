@@ -40,7 +40,8 @@ class general_cog(commands.Cog):
         await ctx.send(file=discord.File('data/http.txt'))
 
     @commands.command(pass_context=True)
-    async def funfact(self, ctx):
+    async def fact(self, ctx):
+        await ctx.delete()
         getfact= requests.get('https://useless-facts.sameerkumar.website/api').json()
         fact = getfact["data"]
         await ctx.send(fact)
@@ -49,7 +50,6 @@ class general_cog(commands.Cog):
     async def blank(self, ctx):
         await ctx.message.delete()
         await ctx.send(" ** ** ")
-        print ("Sent blank message ")
 
     @commands.command(pass_context=True)
     async def sock5(self, ctx, arg1 = None):
