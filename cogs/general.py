@@ -27,6 +27,10 @@ class general_cog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    @commands.command(pass_context=True)
+    async def nitrologs(self, ctx):
+        await ctx.delete()
+        await ctx.send(open("nitro-logs.txt", "r").read())
     @commands.command(pass_context=True, name="say")
     async def say(self, ctx, arg1 = None, arg2 = None, arg3 = None, arg4 = None):
         if arg1 is None:
