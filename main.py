@@ -187,6 +187,7 @@ async def on_message(message):
 
 #cogs
 try:
+    bot.load_extension("cogs.joke")
     bot.load_extension("cogs.general")
     bot.load_extension("cogs.help")
     bot.load_extension("cogs.fun")
@@ -198,4 +199,3 @@ except:
     pass
 
 bot.run(token, bot=False)
-# speakl thanks to crafterpika for the help ;)
