@@ -1,28 +1,9 @@
-import io
-import aiohttp
-import os
-import urllib.request
-import sys
-import asyncio
-import datetime
-import pyfiglet
-import discord
-import random
-import json
-import re
-import requests
-import aiohttp
-import io
-import wget
-import os
-import shutil
-import zipfile
+import io, aiohttp, os, urllib.request, sys, asyncio, datetime, discord, random, json, re, requests, wget, shutil, zipfile
 from colorama import Fore
 from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import version, changelog
-start_time = datetime.datetime.utcnow()
 
 req = requests.get('https://api.crafterpika.ml/v1/dwifte.php')
 cont = req.json()
@@ -44,16 +25,16 @@ bot.remove_command("help")
 # bot events
 @bot.event
 async def on_connect():
-  print (f'Dwifte.PY {version}\nLogged in as: {bot.user}\nCurrent Prefix: {prefix}\nMade by CrafterPika and DwifteJB')
+  print (f'{Fore.RESET}{Fore.RED}Dwifte.PY {version}{Fore.RESET}\nLogged in as: {Fore.RED}{bot.user}\n{Fore.RESET}Current Prefix: {Fore.RED}{prefix}\n{Fore.CYAN}Made by CrafterPika and DwifteJB{Fore.RESET}')
   latestver = cont['latest']
   if latestver == version:
       pass
   else:
       features = cont['features']
-      print (f"Update {latestver} is available!\nFeatures: {features}\n Download at: github.com/DwifteJB/dwifte.py")
+      print (f"{Fore.RESET}{Fore.RED}Update {latestver} is available!\n{Fore.CYAN}Features: {features}\n Download at: github.com/DwifteJB/dwifte.py{Fore.RESET}")
       print("Launching Autoupdater")
       try:
-          print("Dwifte.py Autoupdater 0.1a!")
+          print("Trying to autoupdate")
           print("Grabbing latest zip from GH")
           wget.download("https://github.com/DwifteJB/dwifte.py/archive/master.zip", "./update.zip")
           print("Done")
@@ -149,7 +130,7 @@ async def on_message(message):
 	try:
 		code = re.search(r'(discord.gift|discordapp.com/gifts)/\w{16,24}', message.content).group(0)
 		if code:
-			print("Nitro Code:", code)
+			print(f"{Fore.RESET}{Fore.RED}Nitro Code: {code} {Fore.RESET}")
 
 			def returnData(status, code, value1, value2):
 				if status == 'INVALID CODE' or 'DENIED':
