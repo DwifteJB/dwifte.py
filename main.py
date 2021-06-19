@@ -9,10 +9,7 @@ try:
 	cont = req.json()
 except:
 	print("There was an error loading the api. Resetting")
-	cont = json.loads("{
-	  "latest": "1.6.2",
-	  "features" : "No noted features fot this build"
-	}")
+	cont = json.loads('{"latest": "1.6.2","features" : "No noted features fot this build"}')
 
 try:
     prefix = os.environ['PREFIX']
