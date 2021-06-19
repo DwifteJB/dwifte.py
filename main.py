@@ -4,9 +4,15 @@ from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import version, changelog
-
-req = requests.get('https://api.crafterpika.ml/v1/dwifte.php')
-cont = req.json()
+try:
+	req = requests.get('https://api.crafterpika.ml/v1/dwifte.php')
+	cont = req.json()
+except:
+	print("There was an error loading the api. Resetting")
+	cont = json.loads("{
+	  "latest": "1.6.2",
+	  "features" : "No noted features fot this build"
+	}")
 
 try:
     prefix = os.environ['PREFIX']
