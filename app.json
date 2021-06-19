@@ -1,8 +1,8 @@
 {
-  "name": "Dwifte.py",
-  "description": "An Advanced Selfbot for Discord.",
+  "name": "DwifteSB",
+  "description": "A Selfbot for Discord. Open-Source and written in Python.",
   "repository": "https://github.com/DwifteJB/dwifte.py",
-  "logo": "https://i.ibb.co/wwQGL6w/effects-tried-0-photos-added-0-origin-gallery-total-effects-actions-0-remix-data-tools-used-tilt-shi.jpg",
+  "logo": "https://github.com/DwifteJB.png",
   "keywords": ["python", "selfbot", "discord.py"],
   "env": {
     "TOKEN": {
@@ -15,6 +15,10 @@
     },
     "PREFIX": {
         "description": "Prefix for commands",
+        "required": true
+    },
+    "CONSENT: {
+        "description": "By using this selfbot, you agree that I or the DwifteSB team will be responsible for what happens to your account",
         "required": true
     }
   }
