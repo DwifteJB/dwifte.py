@@ -1,5 +1,5 @@
-version = "1.6.2"
-changelog ="-Uses now cogs\n-Added Nitro Sniper\n-New Commands POG\n-Now supports heroku/non-heroku"
+version = "1.6.3"
+changelog ="-Switched to Pycord"
 colors = [0x00f5b8, 0xe22400, 0x477015, 0xe9cb0c, 0x900ce9, 0x0cc8e9, 0x31e90c, 0x850ce9, 0x0c59e9, 0x02294b, 0x105035, 0x52e010, 0xfbff00, 0x0088ff, 0xff6600]
 answers = ['🎱 | Yes', '🎱 | No', '🎱 | Maybe', '🎱 | Try again later']
 kiss = ['https://media.tenor.com/images/a6669f4044d66658c7ce96be768965e4/tenor.gif', 'https://media1.tenor.com/images/4b5d5afd747fe053ed79317628aac106/tenor.gif', 'https://media1.tenor.com/images/0ec5382910e34ca5649f6c328124daa1/tenor.gif', 'https://media.tenor.com/images/346f1960b45e29861304b867faf24f86/tenor.gif', 'https://media1.tenor.com/images/1d05ed38dace67c8912a14e963afd0e9/tenor.gif']

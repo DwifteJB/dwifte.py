@@ -1,5 +1,5 @@
 {
-	"token": "token",
-	"prefix": ".",
-	"bitly_key": ""
+	"bitly_key": "",
+  "prefix": ".",
+  "token": ""
 }

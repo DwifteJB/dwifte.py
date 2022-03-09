@@ -1,4 +1,4 @@
-import io, aiohttp, os, urllib.request, sys, asyncio, datetime, discord, random, json, re, requests, wget, shutil, zipfile
+import io, os, urllib.request, sys, datetime, discord, random, json, re, requests, wget, shutil, zipfile, aiohttp, asyncio
 from colorama import Fore
 from discord import File, Message
 from discord.ext import commands
@@ -17,9 +17,7 @@ try:
     heroku = True
 except KeyError:
     heroku = False
-    config = json.load(open('config.json', 'r'))
-    prefix = config["prefix"]
-    token = config["token"]
+
 
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 bot.remove_command("help")
@@ -28,6 +26,14 @@ bot.remove_command("help")
 # bot events
 @bot.event
 async def on_connect():
+  from flask import Flask
+
+  app = Flask(__name__)
+
+  @app.route("/")
+  def hello_world():
+    return "<p>Hello, World!</p>"
+  hello_world()
   print (f'{Fore.RESET}{Fore.RED}Dwifte.PY {version}{Fore.RESET}\nLogged in as: {Fore.RED}{bot.user}\n{Fore.RESET}Current Prefix: {Fore.RED}{prefix}\n{Fore.CYAN}Made by CrafterPika and DwifteJB{Fore.RESET}')
   latestver = cont['latest']
   if latestver == version:
@@ -197,8 +203,8 @@ try:
     bot.load_extension("cogs.spam")
     bot.load_extension("cogs.random")
     bot.load_extension("cogs.ImgTools")
-except:
-    print("A Cog failed to load :/")
+except Exception as e:
+    print(f"{e}")
     pass
 
 bot.run(token, bot=False)

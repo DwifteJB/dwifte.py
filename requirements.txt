@@ -1,4 +1,4 @@
-discord.py
+bs4
 websockets
 aiohttp
 pyfiglet
@@ -12,3 +12,4 @@ youtube_dl
 beautifulsoup4
 requests
 wget
+pycord
