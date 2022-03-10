@@ -12,4 +12,4 @@ youtube_dl
 beautifulsoup4
 requests
 wget
-pycord
+py-cord
