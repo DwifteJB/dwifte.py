@@ -4,19 +4,23 @@ from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import version, changelog
+import repl
 try:
 	req = requests.get('https://api.crafterpika.ml/v1/dwifte.php')
 	cont = req.json()
 except:
 	print("There was an error loading the api. Resetting")
 	cont = json.loads('{"latest": "1.6.2","features" : "No noted features fot this build"}')
-
+config = json.load(open('config.json', 'r'))
 try:
     prefix = os.environ['PREFIX']
     token = os.environ['TOKEN']
     heroku = True
 except KeyError:
     heroku = False
+    
+    prefix = config["prefix"]
+    token = config["token"]
 
 
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
@@ -24,16 +28,10 @@ bot.remove_command("help")
 
 
 # bot events
+if config["repl"] == True:
+    repl.keep_alive()
 @bot.event
 async def on_connect():
-  from flask import Flask
-
-  app = Flask(__name__)
-
-  @app.route("/")
-  def hello_world():
-    return "<p>Hello, World!</p>"
-  hello_world()
   print (f'{Fore.RESET}{Fore.RED}Dwifte.PY {version}{Fore.RESET}\nLogged in as: {Fore.RED}{bot.user}\n{Fore.RESET}Current Prefix: {Fore.RED}{prefix}\n{Fore.CYAN}Made by CrafterPika and DwifteJB{Fore.RESET}')
   latestver = cont['latest']
   if latestver == version:
