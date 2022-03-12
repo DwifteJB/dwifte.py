@@ -1,4 +1,4 @@
-version = "1.6.3"
+version = "1.9.3"
 changelog ="- Added Repl.it support\n- Replaced discord.py to Py-Cord\n- Fixed old broken commands"
 colors = [0x00f5b8, 0xe22400, 0x477015, 0xe9cb0c, 0x900ce9, 0x0cc8e9, 0x31e90c, 0x850ce9, 0x0c59e9, 0x02294b, 0x105035, 0x52e010, 0xfbff00, 0x0088ff, 0xff6600]
 answers = ['🎱 | Yes', '🎱 | No', '🎱 | Maybe', '🎱 | Try again later']
