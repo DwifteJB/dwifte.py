@@ -154,12 +154,15 @@ class general_cog(commands.Cog):
         await ctx.message.delete()
         uptime = datetime.datetime.utcnow() - start_time
         uptime = str(uptime).split('.')[0]
-        embed=discord.Embed(title=f"{self.bot.user.name} Info", description="Tells you info about you. Yes you.", color=random.choice(colors))
-        embed.add_field(name="Uptime", value=f''+uptime+'', inline=False)
-        embed.add_field(name="Prefix", value=f'{prefix}', inline=True)
-        embed.add_field(name="Ping", value=f'{round(self.bot.latency * 1000)}ms', inline=True)
-        embed.set_footer(text=f"Dwifte.PY | {version}")
-        await ctx.send(embed=embed)
+        # embed=discord.Embed(title=f"{self.bot.user.name} Info", description="Tells you info about you. Yes you.", color=random.choice(colors))
+        # embed.add_field(name="Uptime", value=f''+uptime+'', inline=False)
+        # embed.add_field(name="Prefix", value=f'{prefix}', inline=True)
+        # embed.add_field(name="Ping", value=f'{round(self.bot.latency * 1000)}ms', inline=True)
+        # embed.set_footer(text=f"Dwifte.PY | {version}")
+        # await ctx.send(embed=embed)
+        # Discord has now removed the ability to send embeds as a user
+        ascii_banner = pyfiglet.figlet_format("Dwifte.PY")
+        await ctx.send(f"```{ascii_banner}```\n\n**Uptime**: {uptime}\n**Prefix**: {prefix}\n**Ping**: {round(self.bot.latency * 1000)}ms")
 
 def setup(bot: commands.Bot):
     bot.add_cog(general_cog(bot))

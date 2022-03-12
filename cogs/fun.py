@@ -91,7 +91,7 @@ class general_cog(commands.Cog):
         os.remove('./data/video.mp4')
 
     @commands.command(pass_through=True)
-    async def tweet(self, ctx, arg1 = None, arg2 = None):
+    async def tweet(self, ctx, arg1 = None, *, arg2 = None):
         if arg1 is None:
             arg1 = "CrafterPika"
         if arg2 is None:
@@ -103,18 +103,21 @@ class general_cog(commands.Cog):
                 await ctx.send(res["message"])
 
     @commands.command(pass_context=True)
-    async def hug(self, ctx, user:discord.Member):
+    async def hug(self, ctx, user: discord.Member):
         await ctx.message.delete()
-        embed=discord.Embed(title=f"{self.bot.user.name} hugged {user.name}", description=random.choice(hug_description), color=random.choice(colors))
-        embed.set_image(url=random.choice(hug))
-        await ctx.send(embed=embed)
+        if ctx.channel.type == discord.ChannelType.private:
+            await ctx.send(f"Giving you a virtual hug\n{random.choice(hug_description)}\n{random.choice(hug)}")
+        else:
+            await ctx.send(f"{self.bot.user.name} hugged {user.name}\n{random.choice(hug_description)}\n{random.choice(hug)}")
 
     @commands.command(pass_context=True)
-    async def kiss(self, ctx, user:discord.Member):
+    async def kiss(self, ctx, user: discord.Member):
         await ctx.message.delete()
-        embed=discord.Embed(title=f"{self.bot.user.name} kissed {user.name}", description=random.choice(kiss_description), color=random.choice(colors))
-        embed.set_image(url=random.choice(kiss))
-        await ctx.send(embed=embed)
+        print(f"{ctx.channel.type}\n{discord.ChannelType.private}")
+        if ctx.channel.type == discord.ChannelType.private:
+            await ctx.send(f"Giving you a virtual kiss\n{random.choice(kiss_description)}\n{random.choice(kiss)}")
+        else:
+            await ctx.send(f"{self.bot.user.name} kissed {user.name}\n{random.choice(kiss_description)}\n{random.choice(kiss)}")
 
 
 def setup(bot: commands.Bot):
