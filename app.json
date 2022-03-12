@@ -17,7 +17,7 @@
         "description": "Prefix for commands",
         "required": true
     },
-    "CONSENT: {
+    "CONSENT": {
         "description": "By using this selfbot, you agree that I or the DwifteSB team will be responsible for what happens to your account",
         "required": true
     }

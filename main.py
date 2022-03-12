@@ -6,11 +6,11 @@ from discord.ext.commands import Bot
 from config import version, changelog
 import repl
 try:
-	req = requests.get('https://api.crafterpika.ml/v1/dwifte.php')
+	req = requests.get('https://raw.githubusercontent.com/DwifteJB/dwifte.py/master/data/update.json')
 	cont = req.json()
 except:
-	print("There was an error loading the api. Resetting")
-	cont = json.loads('{"latest": "1.6.2","features" : "No noted features fot this build"}')
+	print("[WARNING]: We couldn't check for a new update.")
+	cont = json.loads(open("./data/update.json","r"))
 config = json.load(open('config.json', 'r'))
 try:
     prefix = os.environ['PREFIX']
