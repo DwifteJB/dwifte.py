@@ -239,5 +239,5 @@ class ImgTools_cog(commands.Cog):
         os.remove('./data/gen_qr.png')
 
 
-def setup(bot: commands.Bot):
-    bot.add_cog(ImgTools_cog(bot))
+async def setup(bot): 
+    await bot.add_cog(ImgTools_cog(bot))  

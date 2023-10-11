@@ -12,7 +12,7 @@ class Jokes(commands.Cog):
         await ctx.send(pj.get_joke())  
 
 
-def setup(bot): 
-    bot.add_cog(Jokes(bot))  
+async def setup(bot): 
+    await bot.add_cog(Jokes(bot))  
 
 #bad jokes but oh well

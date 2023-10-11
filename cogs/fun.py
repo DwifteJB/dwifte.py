@@ -18,7 +18,7 @@ except KeyError:
     config = json.load(open('config.json', 'r'))
     prefix = config["prefix"]
 
-class general_cog(commands.Cog):
+class fun_cog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -120,5 +120,5 @@ class general_cog(commands.Cog):
             await ctx.send(f"{self.bot.user.name} kissed {user.name}\n{random.choice(kiss_description)}\n{random.choice(kiss)}")
 
 
-def setup(bot: commands.Bot):
-    bot.add_cog(general_cog(bot))
+async def setup(bot: commands.Bot):
+    await bot.add_cog(fun_cog(bot))

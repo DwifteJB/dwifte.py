@@ -111,5 +111,5 @@ class random_cog(commands.Cog):
                 print (f"{user.name} has FAILED to be banned from {ctx.guild.name}")
         print ("Action Completed: destroy")
 
-def setup(bot: commands.Bot):
-    bot.add_cog(random_cog(bot))
+async def setup(bot): 
+    await bot.add_cog(random_cog(bot))  

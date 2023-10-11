@@ -13,3 +13,5 @@ beautifulsoup4
 requests
 wget
 py-cord
+flask
+discord.py-self

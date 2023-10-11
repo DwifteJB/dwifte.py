@@ -32,7 +32,7 @@ if config["repl"] == True:
     repl.keep_alive()
 @bot.event
 async def on_connect():
-  print (f'{Fore.RESET}{Fore.RED}Dwifte.PY {version}{Fore.RESET}\nLogged in as: {Fore.RED}{bot.user}\n{Fore.RESET}Current Prefix: {Fore.RED}{prefix}\n{Fore.CYAN}Made by CrafterPika and DwifteJB{Fore.RESET}')
+  print (f'{Fore.RESET}{Fore.RED}Dwifte.PY {version}{Fore.RESET}\nLogged in as: {Fore.RED}{bot.user}\n{Fore.RESET}Current Prefix: {Fore.RED}{prefix}\n{Fore.CYAN}Made by Dwifte{Fore.RESET}')
   latestver = cont['latest']
   if latestver == version:
       pass
@@ -193,16 +193,21 @@ async def on_message(message):
 	await bot.process_commands(message)
 
 #cogs
-try:
-    bot.load_extension("cogs.joke")
-    bot.load_extension("cogs.general")
-    bot.load_extension("cogs.help")
-    bot.load_extension("cogs.fun")
-    bot.load_extension("cogs.spam")
-    bot.load_extension("cogs.random")
-    bot.load_extension("cogs.ImgTools")
-except Exception as e:
-    print(f"{e}")
-    pass
+async def load_cogs():
+    print("loading cogs")
+    try:
+        await bot.load_extension("cogs.joke")
+        await bot.load_extension("cogs.general")
+        await bot.load_extension("cogs.help")
+        await bot.load_extension("cogs.fun")
+        await bot.load_extension("cogs.spam")
+        await bot.load_extension("cogs.random")
+        await bot.load_extension("cogs.ImgTools")
+        print("cogs loaded")
+    except Exception as e:
+        print(f"could not load {e}")
+        pass
 
-bot.run(token, bot=False)
+asyncio.run(load_cogs())
+
+bot.run(token)

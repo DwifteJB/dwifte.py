@@ -164,5 +164,5 @@ class general_cog(commands.Cog):
         ascii_banner = pyfiglet.figlet_format("Dwifte.PY")
         await ctx.send(f"```{ascii_banner}```\n\n**Uptime**: {uptime}\n**Prefix**: {prefix}\n**Ping**: {round(self.bot.latency * 1000)}ms")
 
-def setup(bot: commands.Bot):
-    bot.add_cog(general_cog(bot))
+async def setup(bot: commands.Bot):
+    await bot.add_cog(general_cog(bot))

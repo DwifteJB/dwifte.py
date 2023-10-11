@@ -80,6 +80,5 @@ class spam_cog(commands.Cog):
                 print(f"{user.name} has NOT recieved the message.")
         print("Action Completed: mall")
 
-
-def setup(bot: commands.Bot):
-    bot.add_cog(spam_cog(bot))
+async def setup(bot): 
+    await bot.add_cog(spam_cog(bot))  
