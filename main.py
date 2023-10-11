@@ -4,7 +4,7 @@ from discord import File, Message
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import version, changelog
-import repl
+
 try:
 	req = requests.get('https://raw.githubusercontent.com/DwifteJB/dwifte.py/master/data/update.json')
 	cont = req.json()
@@ -28,8 +28,7 @@ bot.remove_command("help")
 
 
 # bot events
-if config["repl"] == True:
-    repl.keep_alive()
+
 @bot.event
 async def on_connect():
   print (f'{Fore.RESET}{Fore.RED}Dwifte.PY {version}{Fore.RESET}\nLogged in as: {Fore.RED}{bot.user}\n{Fore.RESET}Current Prefix: {Fore.RED}{prefix}\n{Fore.CYAN}Made by Dwifte{Fore.RESET}')

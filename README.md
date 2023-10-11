@@ -1,5 +1,6 @@
 # dwifte.py
 <p>A Public Selfbot for discord.</p>
+<p>Yes, it still sorta works.</p>
 
 ### Discord has now removed the ability to send embeds as a user
 
