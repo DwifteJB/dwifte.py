@@ -1,4 +1,4 @@
 {
-    "features": "- Added Repl.it support\n- Replaced discord.py to Py-Cord\n- Fixed old broken commands",
-    "latest": "1.9.3"
+    "features": "- fixed",
+    "latest": "1.9.4"
 }
